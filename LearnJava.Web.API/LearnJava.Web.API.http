@@ -1,0 +1,26 @@
+@LearnJava.Web.API_HostAddress = http://localhost:5180
+
+### Register a new student
+POST {{LearnJava.Web.API_HostAddress}}/api/v1/auth/register
+Content-Type: application/json
+
+{
+  "email": "student@example.com",
+  "password": "Password123!"
+}
+
+### Login with existing student
+# @name login
+POST {{LearnJava.Web.API_HostAddress}}/api/v1/auth/login
+Content-Type: application/json
+
+{
+  "email": "student@example.com",
+  "password": "Password123!"
+}
+
+### Get authenticated user profile
+@authToken = {{login.response.body.data.accessToken}}
+GET {{LearnJava.Web.API_HostAddress}}/api/v1/auth/me
+Authorization: Bearer {{authToken}}
+Accept: application/json

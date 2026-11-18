@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v10.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v10.0": {
+      "LearnJava.Web.Domain/1.0.0": {
+        "runtime": {
+          "LearnJava.Web.Domain.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "LearnJava.Web.Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

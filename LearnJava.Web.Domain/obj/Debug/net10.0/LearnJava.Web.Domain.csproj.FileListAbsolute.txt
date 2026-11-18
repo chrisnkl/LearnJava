@@ -1,0 +1,14 @@
+C:\Users\chchn\RiderProjects\LearnJava\LearnJava.Web.Domain\bin\Debug\net10.0\LearnJava.Web.Domain.deps.json
+C:\Users\chchn\RiderProjects\LearnJava\LearnJava.Web.Domain\bin\Debug\net10.0\LearnJava.Web.Domain.dll
+C:\Users\chchn\RiderProjects\LearnJava\LearnJava.Web.Domain\bin\Debug\net10.0\LearnJava.Web.Domain.pdb
+C:\Users\chchn\RiderProjects\LearnJava\LearnJava.Web.Domain\obj\Debug\net10.0\LearnJava.Web.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\chchn\RiderProjects\LearnJava\LearnJava.Web.Domain\obj\Debug\net10.0\LearnJava.Web.Domain.AssemblyInfoInputs.cache
+C:\Users\chchn\RiderProjects\LearnJava\LearnJava.Web.Domain\obj\Debug\net10.0\LearnJava.Web.Domain.AssemblyInfo.cs
+C:\Users\chchn\RiderProjects\LearnJava\LearnJava.Web.Domain\obj\Debug\net10.0\LearnJava.Web.Domain.csproj.CoreCompileInputs.cache
+C:\Users\chchn\RiderProjects\LearnJava\LearnJava.Web.Domain\obj\Debug\net10.0\LearnJava.Web.Domain.dll
+C:\Users\chchn\RiderProjects\LearnJava\LearnJava.Web.Domain\obj\Debug\net10.0\refint\LearnJava.Web.Domain.dll
+C:\Users\chchn\RiderProjects\LearnJava\LearnJava.Web.Domain\obj\Debug\net10.0\LearnJava.Web.Domain.pdb
+C:\Users\chchn\RiderProjects\LearnJava\LearnJava.Web.Domain\obj\Debug\net10.0\ref\LearnJava.Web.Domain.dll
+C:\Users\chchn\.gemini\antigravity\brain\d7710c76-d570-43ed-bc40-4959cb59e9ff\scratch\apibuild\LearnJava.Web.Domain.deps.json
+C:\Users\chchn\.gemini\antigravity\brain\d7710c76-d570-43ed-bc40-4959cb59e9ff\scratch\apibuild\LearnJava.Web.Domain.dll
+C:\Users\chchn\.gemini\antigravity\brain\d7710c76-d570-43ed-bc40-4959cb59e9ff\scratch\apibuild\LearnJava.Web.Domain.pdb
