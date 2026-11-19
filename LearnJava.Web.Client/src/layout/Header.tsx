@@ -52,10 +52,9 @@ export default function Header() {
               to={link.path}
               end={link.path === "/"}
               className={({ isActive }) =>
-                `rounded-lg px-3.5 py-1.5 text-sm font-medium transition ${
-                  isActive
-                    ? "bg-amber-500/15 text-amber-400 shadow-xs"
-                    : "text-slate-300 hover:bg-slate-800/70 hover:text-white"
+                `rounded-lg px-3.5 py-1.5 text-sm font-medium transition ${isActive
+                  ? "bg-amber-500/15 text-amber-400 shadow-xs"
+                  : "text-slate-300 hover:bg-slate-800/70 hover:text-white"
                 }`
               }
             >
@@ -115,10 +114,9 @@ export default function Header() {
                 end={link.path === "/"}
                 onClick={() => setMobileMenuOpen(false)}
                 className={({ isActive }) =>
-                  `rounded-lg px-3 py-2 text-sm font-medium transition ${
-                    isActive
-                      ? "bg-amber-500/15 text-amber-400"
-                      : "text-slate-300 hover:bg-slate-800 hover:text-white"
+                  `rounded-lg px-3 py-2 text-sm font-medium transition ${isActive
+                    ? "bg-amber-500/15 text-amber-400"
+                    : "text-slate-300 hover:bg-slate-800 hover:text-white"
                   }`
                 }
               >

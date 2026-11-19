@@ -20,16 +20,15 @@ export async function apiClient<T>(endpoint: string, options?: RequestInit): Pro
     },
   });
 
-  const json: ApiResponse<T> = await response.json();
-
   if (!response.ok) {
     if (response.status === 401) {
       localStorage.removeItem(TOKEN_STORAGE_KEY);
       window.location.href = "/login";
     }
-    throw new Error(json.message || `Request failed with status ${response.status}`);
+    throw new Error(`Request failed with status ${response.status}`);
   }
+  const json: ApiResponse<T> = await response.json();
 
-  return json.data;
+  return await json.data;
 }
 
