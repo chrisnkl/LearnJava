@@ -98,7 +98,7 @@ export default function QuizzesPage() {
               <div>
                 <div className="flex items-center justify-between gap-2 mb-3">
                   <span className="font-mono text-xs font-semibold text-slate-400">
-                    Quiz #{String(lesson.orderIndex + 1).padStart(2, "0")}
+                    Quiz #{String(lesson.orderIndex).padStart(2, "0")}
                   </span>
                   <span className={`inline-flex items-center rounded-md border px-2 py-0.5 text-xs font-medium ${diff.badge}`}>
                     {diff.label}

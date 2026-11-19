@@ -6,7 +6,7 @@ How to run the project step by step:
 
 ## 1. Start the Database Container
 
-Start the SQL Server 2025 container in the background:
+Start the SQL Server 2025 container in the background from the root directory:
 
 ```bash
 docker compose up -d
@@ -18,7 +18,7 @@ docker compose up -d
 
 ## 2. Apply Database Migrations & Seed Data
 
-Run the DbUp migration project to create the schema, tables, and seed the curriculum, questions, and default student:
+Run the DbUp migration project to create the database schema, tables, and seed the 8-lesson Java curriculum, diagnostic questions, misconceptions, and default student account:
 
 ```bash
 dotnet run --project LearnJava.Database/LearnJava.Database.csproj
@@ -36,7 +36,7 @@ dotnet run --project LearnJava.Web.API/LearnJava.Web.API.csproj
 
 The API will be available at:
 * `http://localhost:5180`
-* Swagger / OpenAPI documentation: `http://localhost:5180/swagger` (if enabled)
+* OpenAPI specification: `http://localhost:5180/openapi/v1.json`
 
 ---
 
@@ -51,12 +51,12 @@ npm run dev
 ```
 
 The web application will be available at:
-* `http://localhost:5173`
+* `http://localhost:3000`
 
 ---
 
 ## Default Demo Account
 
-You can log in immediately with the pre-seeded account:
+You can log in immediately with the pre-seeded student account:
 * **Email:** `user@gmail.com`
 * **Password:** `user12345`

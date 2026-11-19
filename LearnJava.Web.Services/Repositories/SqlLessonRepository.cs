@@ -112,13 +112,18 @@ public class SqlLessonRepository : ILessonRepository
         }
 
         // Adaptive Selection: pick student's preferred style if exists, else first available.
-        // Auditory learners have no authored variant: serve the prose-heavy Conceptual variant,
-        // which the client narrates via text-to-speech.
-        var activeVariant = variants.FirstOrDefault(v => v.Style == preferredStyle)
-            ?? (preferredStyle == LearningStyle.Auditory
-                ? variants.FirstOrDefault(v => v.Style == LearningStyle.Conceptual)
-                : null)
-            ?? variants[0];
+        // Auditory learners have no separate authored variant: serve the prose-heavy Conceptual
+        // variant tagged as Auditory so the UI highlights Auditory mode and narrates via Web Speech.
+        LessonVariantDto activeVariant;
+        if (preferredStyle == LearningStyle.Auditory)
+        {
+            var baseVariant = variants.FirstOrDefault(v => v.Style == LearningStyle.Conceptual) ?? variants[0];
+            activeVariant = baseVariant with { Style = LearningStyle.Auditory };
+        }
+        else
+        {
+            activeVariant = variants.FirstOrDefault(v => v.Style == preferredStyle) ?? variants[0];
+        }
         var availableStyles = variants.Select(v => v.Style).Distinct().ToList();
 
         return new LessonDetailResponse(

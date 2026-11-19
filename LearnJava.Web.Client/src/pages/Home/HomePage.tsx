@@ -210,7 +210,7 @@ export default function HomePage() {
               </span>
               {nextLesson && (
                 <span className="font-mono text-xs text-slate-500">
-                  Lesson #{String(nextLesson.orderIndex + 1).padStart(2, "0")}
+                  Lesson #{String(nextLesson.orderIndex).padStart(2, "0")}
                 </span>
               )}
             </div>

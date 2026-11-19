@@ -36,7 +36,7 @@ export default function LessonCard({ lesson }: LessonCardProps) {
     const difficulty =
         DIFFICULTY_CONFIG[lesson.difficulty] ?? DIFFICULTY_CONFIG[DifficultyLevel.Beginner];
 
-    const formattedOrder = String(lesson.orderIndex + 1).padStart(2, "0");
+    const formattedOrder = String(lesson.orderIndex).padStart(2, "0");
 
     return (
         <Link

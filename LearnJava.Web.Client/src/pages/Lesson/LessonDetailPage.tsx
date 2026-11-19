@@ -294,7 +294,7 @@ export default function LessonDetailPage() {
       <div className="relative overflow-hidden rounded-2xl border border-slate-800/80 bg-slate-900/60 p-6 backdrop-blur-md sm:p-8">
         <div className="flex flex-wrap items-center gap-2.5 mb-3">
           <span className="font-mono text-xs font-semibold text-amber-400">
-            Lesson #{String(lesson.orderIndex + 1).padStart(2, "0")}
+            Lesson #{String(lesson.orderIndex).padStart(2, "0")}
           </span>
           <span className={`inline-flex items-center rounded-md border px-2 py-0.5 text-xs font-medium ${difficulty.badge}`}>
             {difficulty.label}

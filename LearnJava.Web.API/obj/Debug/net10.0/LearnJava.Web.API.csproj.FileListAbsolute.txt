@@ -78,3 +78,4 @@ C:\Users\chchn\.gemini\antigravity\brain\d7710c76-d570-43ed-bc40-4959cb59e9ff\sc
 C:\Users\chchn\.gemini\antigravity\brain\d7710c76-d570-43ed-bc40-4959cb59e9ff\scratch\apibuild\LearnJava.Web.API.runtimeconfig.json
 C:\Users\chchn\.gemini\antigravity\brain\d7710c76-d570-43ed-bc40-4959cb59e9ff\scratch\apibuild\LearnJava.Web.API.dll
 C:\Users\chchn\.gemini\antigravity\brain\d7710c76-d570-43ed-bc40-4959cb59e9ff\scratch\apibuild\LearnJava.Web.API.pdb
+C:\Users\chchn\RiderProjects\LearnJava\LearnJava.Web.API\obj\Debug\net10.0\LearnJava.Web.API.sourcelink.json

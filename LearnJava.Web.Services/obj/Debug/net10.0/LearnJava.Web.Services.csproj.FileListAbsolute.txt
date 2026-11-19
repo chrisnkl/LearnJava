@@ -16,3 +16,4 @@ C:\Users\chchn\RiderProjects\LearnJava\LearnJava.Web.Services\obj\Debug\net10.0\
 C:\Users\chchn\.gemini\antigravity\brain\d7710c76-d570-43ed-bc40-4959cb59e9ff\scratch\apibuild\LearnJava.Web.Services.deps.json
 C:\Users\chchn\.gemini\antigravity\brain\d7710c76-d570-43ed-bc40-4959cb59e9ff\scratch\apibuild\LearnJava.Web.Services.dll
 C:\Users\chchn\.gemini\antigravity\brain\d7710c76-d570-43ed-bc40-4959cb59e9ff\scratch\apibuild\LearnJava.Web.Services.pdb
+C:\Users\chchn\RiderProjects\LearnJava\LearnJava.Web.Services\obj\Debug\net10.0\LearnJava.Web.Services.sourcelink.json

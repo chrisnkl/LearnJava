@@ -25,10 +25,19 @@ export async function apiClient<T>(endpoint: string, options?: RequestInit): Pro
       localStorage.removeItem(TOKEN_STORAGE_KEY);
       window.location.href = "/login";
     }
-    throw new Error(`Request failed with status ${response.status}`);
+    let errorMessage = `Request failed with status ${response.status}`;
+    try {
+      const errorJson: Partial<ApiResponse<unknown>> = await response.json();
+      if (errorJson.message) {
+        errorMessage = errorJson.message;
+      }
+    } catch {
+      // Ignore non-JSON error bodies
+    }
+    throw new Error(errorMessage);
   }
-  const json: ApiResponse<T> = await response.json();
 
-  return await json.data;
+  const json: ApiResponse<T> = await response.json();
+  return json.data;
 }
 
