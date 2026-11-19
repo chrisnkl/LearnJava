@@ -19,16 +19,15 @@ public class AdaptiveInferenceEngine : IAdaptiveInferenceEngine
         int lessonsCompleted)
     {
         // Standard rounding to nearest integer percentage (e.g. 89.9% -> 90%)
-        // aligns user-facing display with milestone thresholds
         double roundedAccuracy = Math.Round(accuracyPercentage, MidpointRounding.AwayFromZero);
 
-        // Stereotype inference rules using modern C# pattern matching
+        // Stereotype inference rules
         return (roundedAccuracy, totalQuestionsAnswered, currentStreak, lessonsCompleted) switch
         {
             ( >= 90.0, >= 15, >= 5, >= 3) => StudentStereotype.Professional,
-            ( >= 75.0, >= 10, _, >= 2)    => StudentStereotype.Advanced,
-            ( >= 50.0, >= 4, _, _)        => StudentStereotype.Intermediate,
-            _                             => StudentStereotype.Beginner
+            ( >= 75.0, >= 10, _, >= 2) => StudentStereotype.Advanced,
+            ( >= 50.0, >= 4, _, _) => StudentStereotype.Intermediate,
+            _ => StudentStereotype.Beginner
         };
     }
 
