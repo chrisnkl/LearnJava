@@ -19,7 +19,7 @@ export default function MarkdownViewer({ content }: MarkdownViewerProps) {
     return parts.map((part, idx) => {
       if (part.startsWith("**") && part.endsWith("**")) {
         return (
-          <strong key={idx} className="font-semibold text-amber-300">
+          <strong key={idx} className="font-semibold text-sky-300">
             {part.slice(2, -2)}
           </strong>
         );
@@ -28,7 +28,7 @@ export default function MarkdownViewer({ content }: MarkdownViewerProps) {
         return (
           <code
             key={idx}
-            className="rounded bg-slate-800 px-1.5 py-0.5 font-mono text-xs text-amber-400 border border-slate-700/60"
+            className="rounded bg-slate-800 px-1.5 py-0.5 font-mono text-xs text-sky-400 border border-slate-700/60"
           >
             {part.slice(1, -1)}
           </code>
@@ -91,7 +91,7 @@ export default function MarkdownViewer({ content }: MarkdownViewerProps) {
     }
     if (line.startsWith("### ")) {
       elements.push(
-        <h3 key={`h3-${i}`} className="mt-4 mb-2 text-base font-semibold text-amber-400">
+        <h3 key={`h3-${i}`} className="mt-4 mb-2 text-base font-semibold text-sky-400">
           {renderFormattedText(line.substring(4))}
         </h3>
       );

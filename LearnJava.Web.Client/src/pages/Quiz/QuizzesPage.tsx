@@ -7,19 +7,19 @@ import Spinner from "../../components/Spinner/Spinner";
 const DIFFICULTY_CONFIG: Record<DifficultyLevel, { label: string; badge: string }> = {
   [DifficultyLevel.Beginner]: {
     label: "Beginner",
-    badge: "border-emerald-500/30 bg-emerald-500/10 text-emerald-400",
+    badge: "border-green-500/30 bg-green-500/10 text-green-500",
   },
   [DifficultyLevel.Intermediate]: {
     label: "Intermediate",
-    badge: "border-sky-500/30 bg-sky-500/10 text-sky-400",
+    badge: "border-orange-500/30 bg-orange-500/10 text-orange-500",
   },
   [DifficultyLevel.Advanced]: {
     label: "Advanced",
-    badge: "border-violet-500/30 bg-violet-500/10 text-violet-400",
+    badge: "border-red-500/30 bg-red-500/10 text-red-500",
   },
   [DifficultyLevel.Professional]: {
     label: "Professional",
-    badge: "border-amber-500/30 bg-amber-500/10 text-amber-400",
+    badge: "border-sky-500/30 bg-sky-500/10 text-sky-400",
   },
   [DifficultyLevel.Expert]: {
     label: "Expert",
@@ -116,7 +116,7 @@ export default function QuizzesPage() {
 
                 <Link
                   to={`/lessons/${lesson.id}/quiz`}
-                  className="inline-flex items-center gap-1.5 rounded-xl bg-amber-500/10 border border-amber-500/30 px-3.5 py-1.5 text-xs font-bold text-amber-400 hover:bg-amber-500/20 hover:text-amber-300 transition"
+                  className="inline-flex items-center gap-1.5 rounded-xl bg-sky-500/10 border border-sky-500/30 px-3.5 py-1.5 text-xs font-bold text-sky-400 hover:bg-sky-500/20 hover:text-sky-300 transition"
                 >
                   <span>Start Quiz</span>
                   <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">

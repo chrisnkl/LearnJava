@@ -12,19 +12,19 @@ const DIFFICULTY_CONFIG: Record<
 > = {
     [DifficultyLevel.Beginner]: {
         label: "Beginner",
-        badge: "border-emerald-500/30 bg-emerald-500/10 text-emerald-400",
+        badge: "border-green-500/30 bg-green-500/10 text-green-500",
     },
     [DifficultyLevel.Intermediate]: {
         label: "Intermediate",
-        badge: "border-sky-500/30 bg-sky-500/10 text-sky-400",
+        badge: "border-orange-500/30 bg-orange-500/10 text-orange-500",
     },
     [DifficultyLevel.Advanced]: {
         label: "Advanced",
-        badge: "border-violet-500/30 bg-violet-500/10 text-violet-400",
+        badge: "border-red-500/30 bg-red-500/10 text-red-500",
     },
     [DifficultyLevel.Professional]: {
         label: "Professional",
-        badge: "border-amber-500/30 bg-amber-500/10 text-amber-400",
+        badge: "border-sky-500/30 bg-sky-500/10 text-sky-400",
     },
     [DifficultyLevel.Expert]: {
         label: "Expert",
@@ -41,14 +41,14 @@ export default function LessonCard({ lesson }: LessonCardProps) {
     return (
         <Link
             to={`/lessons/${lesson.id}`}
-            className="group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-slate-800/80 bg-slate-900/60 p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-amber-500/40 hover:bg-slate-900/90 hover:shadow-xl hover:shadow-amber-500/5"
+            className="group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-slate-800/80 bg-slate-900/60 p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-sky-500/40 hover:bg-slate-900/90 hover:shadow-xl hover:shadow-sky-500/5"
         >
-            <div className="pointer-events-none absolute -top-12 -right-12 h-28 w-28 rounded-full bg-amber-500/0 blur-2xl transition-all duration-300 group-hover:bg-amber-500/10" />
+            <div className="pointer-events-none absolute -top-12 -right-12 h-28 w-28 rounded-full bg-sky-500/0 blur-2xl transition-all duration-300 group-hover:bg-sky-500/10" />
 
             <div>
                 <div className="flex items-center justify-between gap-2 mb-4">
                     <div className="flex items-center gap-2">
-                        <span className="font-mono text-xs font-semibold text-slate-500 group-hover:text-amber-400 transition-colors">
+                        <span className="font-mono text-xs font-semibold text-slate-500 group-hover:text-sky-400 transition-colors">
                             #{formattedOrder}
                         </span>
                         <span
@@ -78,7 +78,7 @@ export default function LessonCard({ lesson }: LessonCardProps) {
                     )}
                 </div>
 
-                <h2 className="text-lg font-bold tracking-tight text-white transition-colors group-hover:text-amber-400">
+                <h2 className="text-lg font-bold tracking-tight text-white transition-colors group-hover:text-sky-400">
                     {lesson.title}
                 </h2>
 
@@ -105,7 +105,7 @@ export default function LessonCard({ lesson }: LessonCardProps) {
                     <span>{lesson.questionCount} {lesson.questionCount === 1 ? "question" : "questions"}</span>
                 </div>
 
-                <span className="inline-flex items-center gap-1 text-xs font-semibold text-amber-400 transition-transform group-hover:translate-x-1">
+                <span className="inline-flex items-center gap-1 text-xs font-semibold text-sky-400 transition-transform group-hover:translate-x-1">
                     {lesson.isCompleted ? "Review" : "Start"}
                     <svg
                         className="h-3.5 w-3.5"

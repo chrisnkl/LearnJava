@@ -24,7 +24,7 @@ export default function Header() {
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         {/* Brand / Logo */}
         <Link to="/" className="flex items-center gap-2.5 transition hover:opacity-90">
-          <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-tr from-amber-600 to-amber-400 shadow-md shadow-amber-500/20">
+          <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-tr from-sky-600 to-sky-400 shadow-md shadow-sky-500/20">
             <svg
               className="h-5 w-5 text-white"
               fill="none"
@@ -40,7 +40,7 @@ export default function Header() {
             </svg>
           </div>
           <span className="text-lg font-bold tracking-tight text-white">
-            Learn<span className="text-amber-500">Java</span>
+            Learn<span className="text-sky-500">Java</span>
           </span>
         </Link>
 
@@ -53,7 +53,7 @@ export default function Header() {
               end={link.path === "/"}
               className={({ isActive }) =>
                 `rounded-lg px-3.5 py-1.5 text-sm font-medium transition ${isActive
-                  ? "bg-amber-500/15 text-amber-400 shadow-xs"
+                  ? "bg-sky-500/15 text-sky-400 shadow-xs"
                   : "text-slate-300 hover:bg-slate-800/70 hover:text-white"
                 }`
               }
@@ -115,7 +115,7 @@ export default function Header() {
                 onClick={() => setMobileMenuOpen(false)}
                 className={({ isActive }) =>
                   `rounded-lg px-3 py-2 text-sm font-medium transition ${isActive
-                    ? "bg-amber-500/15 text-amber-400"
+                    ? "bg-sky-500/15 text-sky-400"
                     : "text-slate-300 hover:bg-slate-800 hover:text-white"
                   }`
                 }

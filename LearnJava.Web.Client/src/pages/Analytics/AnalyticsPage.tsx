@@ -15,25 +15,25 @@ const STEREOTYPE_DATA: Record<
 > = {
   [StudentStereotype.Beginner]: {
     label: "Beginner",
-    badge: "border-slate-600 bg-slate-800 text-slate-300",
+    badge: "border-green-500/40 bg-green-500/15 text-green-500",
     desc: "Learning core Java syntax, memory basics, and object-oriented fundamentals.",
     nextCriteria: "Reach 50% accuracy across at least 4 questions to advance to Intermediate.",
   },
   [StudentStereotype.Intermediate]: {
     label: "Intermediate",
-    badge: "border-sky-500/40 bg-sky-500/15 text-sky-300",
+    badge: "border-orange-500/40 bg-orange-500/15 text-orange-500",
     desc: "Developing strong grasp of syntax, OOP basics, and primitive/reference memory rules.",
     nextCriteria: "Reach 75% accuracy, 10 questions answered, and 2 completed lessons to advance to Advanced.",
   },
   [StudentStereotype.Advanced]: {
     label: "Advanced",
-    badge: "border-violet-500/40 bg-violet-500/15 text-violet-300",
+    badge: "border-red-500/40 bg-red-500/15 text-red-500",
     desc: "Comfortable with polymorphism, heap management, and common Java pitfalls.",
     nextCriteria: "Reach 90% accuracy, 15 questions answered, streak of 5+, and 3 lessons completed for Professional.",
   },
   [StudentStereotype.Professional]: {
     label: "Professional",
-    badge: "border-amber-500/40 bg-amber-500/20 text-amber-300",
+    badge: "border-sky-500/40 bg-sky-500/20 text-sky-300",
     desc: "Strong command of Java memory management, OOP design, and edge cases.",
     nextCriteria: "Maximum pedagogical mastery achieved!",
   },
@@ -236,7 +236,7 @@ export default function AnalyticsPage() {
               <button
                 type="button"
                 onClick={() => setIsEditingName(!isEditingName)}
-                className="text-xs text-slate-400 hover:text-amber-400 underline transition cursor-pointer"
+                className="text-xs text-slate-400 hover:text-sky-400 underline transition cursor-pointer"
               >
                 {isEditingName ? "Cancel" : "Edit Name"}
               </button>
@@ -251,19 +251,19 @@ export default function AnalyticsPage() {
                   placeholder="First Name"
                   value={firstName}
                   onChange={(e) => setFirstName(e.target.value)}
-                  className="rounded-lg border border-slate-700 bg-slate-950 px-3 py-1.5 text-xs text-white placeholder-slate-500 focus:border-amber-500 focus:outline-none"
+                  className="rounded-lg border border-slate-700 bg-slate-950 px-3 py-1.5 text-xs text-white placeholder-slate-500 focus:border-sky-500 focus:outline-none"
                 />
                 <input
                   type="text"
                   placeholder="Last Name"
                   value={lastName}
                   onChange={(e) => setLastName(e.target.value)}
-                  className="rounded-lg border border-slate-700 bg-slate-950 px-3 py-1.5 text-xs text-white placeholder-slate-500 focus:border-amber-500 focus:outline-none"
+                  className="rounded-lg border border-slate-700 bg-slate-950 px-3 py-1.5 text-xs text-white placeholder-slate-500 focus:border-sky-500 focus:outline-none"
                 />
                 <button
                   type="submit"
                   disabled={isUpdating}
-                  className="rounded-lg bg-amber-500 px-3 py-1.5 text-xs font-bold text-slate-950 hover:bg-amber-400 transition cursor-pointer"
+                  className="rounded-lg bg-sky-500 px-3 py-1.5 text-xs font-bold text-slate-950 hover:bg-sky-400 transition cursor-pointer"
                 >
                   Save
                 </button>
@@ -274,7 +274,7 @@ export default function AnalyticsPage() {
           <div className="flex items-center gap-4 bg-slate-950/60 border border-slate-800/80 p-4 rounded-xl">
             <div className="flex items-center justify-center gap-5">
               <div className="text-center">
-                <span className="block text-xl font-black text-amber-400">
+                <span className="block text-xl font-black text-sky-400">
                   {profile.currentStreak} 🔥
                 </span>
                 <span className="text-[10px] text-slate-400 font-medium uppercase">
@@ -308,7 +308,7 @@ export default function AnalyticsPage() {
 
         {/* Next Tier Progression Criteria */}
         <div className="mt-6 rounded-xl border border-slate-800 bg-slate-950/70 p-3.5 text-xs text-slate-300 flex items-center gap-2">
-          <span className="text-amber-400">🎯</span>
+          <span className="text-sky-400">🎯</span>
           <span>
             <strong>Progression Goal: </strong>
             {stereoInfo.nextCriteria}
@@ -329,7 +329,7 @@ export default function AnalyticsPage() {
           <button
             type="button"
             onClick={() => setShowQuestionnaire(true)}
-            className="inline-flex items-center gap-1.5 rounded-xl border border-amber-500/40 bg-amber-500/15 px-3.5 py-1.5 text-xs font-semibold text-amber-300 hover:bg-amber-500/25 transition cursor-pointer"
+            className="inline-flex items-center gap-1.5 rounded-xl border border-sky-500/40 bg-sky-500/15 px-3.5 py-1.5 text-xs font-semibold text-sky-300 hover:bg-sky-500/25 transition cursor-pointer"
           >
             <span>📝</span>
             <span>Take Learning Style Questionnaire</span>
@@ -352,7 +352,7 @@ export default function AnalyticsPage() {
                 onClick={() => handleUpdateStyle(opt.style)}
                 disabled={isUpdating}
                 className={`relative flex flex-col justify-between rounded-xl border p-5 text-left transition cursor-pointer ${isSelected
-                  ? "border-amber-500/80 bg-amber-500/10 shadow-lg shadow-amber-500/5 ring-1 ring-amber-500/40"
+                  ? "border-sky-500/80 bg-sky-500/10 shadow-lg shadow-sky-500/5 ring-1 ring-sky-500/40"
                   : "border-slate-800 bg-slate-950/60 hover:border-slate-700 hover:bg-slate-900"
                   }`}
               >
@@ -360,7 +360,7 @@ export default function AnalyticsPage() {
                   <div className="flex items-center justify-between mb-2">
                     <span className="text-2xl">{opt.icon}</span>
                     {isSelected && (
-                      <span className="rounded-full bg-amber-500/20 border border-amber-500/40 px-2 py-0.5 text-[10px] font-bold text-amber-300">
+                      <span className="rounded-full bg-sky-500/20 border border-sky-500/40 px-2 py-0.5 text-[10px] font-bold text-sky-300">
                         Active
                       </span>
                     )}
@@ -371,7 +371,7 @@ export default function AnalyticsPage() {
 
                 <div className="mt-4 pt-3 border-t border-slate-800/60 text-right">
                   <span
-                    className={`text-xs font-semibold ${isSelected ? "text-amber-400" : "text-slate-500 hover:text-slate-300"
+                    className={`text-xs font-semibold ${isSelected ? "text-sky-400" : "text-slate-500 hover:text-slate-300"
                       }`}
                   >
                     {isSelected ? "Selected ✓" : "Activate"}
@@ -433,7 +433,7 @@ export default function AnalyticsPage() {
                       <div className="flex items-center gap-2">
                         <div className="h-1.5 w-16 bg-slate-800 rounded-full overflow-hidden">
                           <div
-                            className={`h-full ${att.isPassed ? "bg-emerald-400" : "bg-amber-400"
+                            className={`h-full ${att.isPassed ? "bg-emerald-400" : "bg-sky-400"
                               }`}
                             style={{ width: `${att.accuracyPercentage}%` }}
                           />
@@ -448,7 +448,7 @@ export default function AnalyticsPage() {
                           Passed
                         </span>
                       ) : (
-                        <span className="inline-flex rounded-full bg-amber-500/15 border border-amber-500/30 px-2 py-0.5 text-[10px] font-bold text-amber-300">
+                        <span className="inline-flex rounded-full bg-sky-500/15 border border-sky-500/30 px-2 py-0.5 text-[10px] font-bold text-sky-300">
                           Needs Review
                         </span>
                       )}
@@ -488,7 +488,7 @@ export default function AnalyticsPage() {
               >
                 <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
                   <div className="flex items-center gap-2">
-                    <span className="font-mono text-xs uppercase px-2 py-0.5 rounded bg-slate-800 text-amber-300 border border-slate-700/60">
+                    <span className="font-mono text-xs uppercase px-2 py-0.5 rounded bg-slate-800 text-sky-300 border border-slate-700/60">
                       {misc.code}
                     </span>
                     <h3 className="text-sm font-bold text-white">{misc.title}</h3>
@@ -522,10 +522,10 @@ export default function AnalyticsPage() {
 
       {/* Personalized Recommendations */}
       {profile.activeRecommendations.length > 0 && (
-        <div className="rounded-2xl border border-amber-500/30 bg-amber-950/15 p-6 backdrop-blur-sm">
+        <div className="rounded-2xl border border-sky-500/30 bg-sky-950/15 p-6 backdrop-blur-sm">
           <div className="flex items-center gap-2 mb-3">
             <span className="text-xl">💡</span>
-            <h2 className="text-lg font-bold text-amber-300">Pedagogical Recommendations</h2>
+            <h2 className="text-lg font-bold text-sky-300">Pedagogical Recommendations</h2>
           </div>
           <p className="text-xs text-slate-300 mb-4">
             Generated automatically by the inference engine to remediate identified knowledge gaps:
@@ -535,7 +535,7 @@ export default function AnalyticsPage() {
             {profile.activeRecommendations.map((rec) => (
               <div
                 key={rec.id}
-                className="flex flex-col justify-between rounded-xl border border-amber-500/20 bg-slate-900/80 p-4"
+                className="flex flex-col justify-between rounded-xl border border-sky-500/20 bg-slate-900/80 p-4"
               >
                 <div>
                   <h3 className="text-sm font-bold text-white">{rec.lessonTitle}</h3>
@@ -544,7 +544,7 @@ export default function AnalyticsPage() {
                 <div className="mt-4 pt-3 border-t border-slate-800/80">
                   <Link
                     to={`/lessons/${rec.targetLessonId}`}
-                    className="inline-flex items-center gap-1 text-xs font-semibold text-amber-400 hover:text-amber-300"
+                    className="inline-flex items-center gap-1 text-xs font-semibold text-sky-400 hover:text-sky-300"
                   >
                     Start Remediation Lesson →
                   </Link>
@@ -593,7 +593,7 @@ export default function AnalyticsPage() {
                       type="button"
                       onClick={() => setQAnswers((prev) => ({ ...prev, 1: opt.s }))}
                       className={`p-2 rounded-lg border text-left transition cursor-pointer ${qAnswers[1] === opt.s
-                        ? "border-amber-500 bg-amber-500/15 text-white font-medium"
+                        ? "border-sky-500 bg-sky-500/15 text-white font-medium"
                         : "border-slate-800 bg-slate-900 text-slate-300 hover:bg-slate-800"
                         }`}
                     >
@@ -620,7 +620,7 @@ export default function AnalyticsPage() {
                       type="button"
                       onClick={() => setQAnswers((prev) => ({ ...prev, 2: opt.s }))}
                       className={`p-2 rounded-lg border text-left transition cursor-pointer ${qAnswers[2] === opt.s
-                        ? "border-amber-500 bg-amber-500/15 text-white font-medium"
+                        ? "border-sky-500 bg-sky-500/15 text-white font-medium"
                         : "border-slate-800 bg-slate-900 text-slate-300 hover:bg-slate-800"
                         }`}
                     >
@@ -647,7 +647,7 @@ export default function AnalyticsPage() {
                       type="button"
                       onClick={() => setQAnswers((prev) => ({ ...prev, 3: opt.s }))}
                       className={`p-2 rounded-lg border text-left transition cursor-pointer ${qAnswers[3] === opt.s
-                        ? "border-amber-500 bg-amber-500/15 text-white font-medium"
+                        ? "border-sky-500 bg-sky-500/15 text-white font-medium"
                         : "border-slate-800 bg-slate-900 text-slate-300 hover:bg-slate-800"
                         }`}
                     >
@@ -670,7 +670,7 @@ export default function AnalyticsPage() {
                 type="button"
                 onClick={handleCompleteQuestionnaire}
                 disabled={Object.keys(qAnswers).length < 3}
-                className="px-5 py-2 rounded-xl bg-amber-500 text-xs font-bold text-slate-950 hover:bg-amber-400 disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer"
+                className="px-5 py-2 rounded-xl bg-sky-500 text-xs font-bold text-slate-950 hover:bg-sky-400 disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer"
               >
                 Apply Recommended Style
               </button>

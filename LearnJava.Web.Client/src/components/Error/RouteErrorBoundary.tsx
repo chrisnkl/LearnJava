@@ -28,7 +28,7 @@ export default function RouteErrorBoundary() {
           </button>
           <Link
             to="/"
-            className="rounded-xl bg-amber-500 px-4 py-2 text-xs font-bold text-slate-950 hover:bg-amber-400 transition"
+            className="rounded-xl bg-sky-500 px-4 py-2 text-xs font-bold text-slate-950 hover:bg-sky-400 transition"
           >
             Go to Home
           </Link>

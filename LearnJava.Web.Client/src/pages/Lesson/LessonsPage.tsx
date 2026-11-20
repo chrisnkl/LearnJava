@@ -38,7 +38,7 @@ export default function LessonsPage() {
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 border-b border-slate-800 pb-6">
         <div>
           <h1 className="text-3xl font-extrabold tracking-tight text-white">
-            Java Curriculum
+            Lessons
           </h1>
           <p className="mt-1 text-sm text-slate-400">
             Java lessons adapted to your selected learning style.
@@ -64,11 +64,10 @@ export default function LessonsPage() {
                 key={String(tab.value)}
                 type="button"
                 onClick={() => setSelectedDifficulty(tab.value)}
-                className={`rounded-xl px-3.5 py-1.5 text-xs font-semibold transition cursor-pointer ${
-                  isActive
-                    ? "bg-amber-500 text-slate-950 shadow-md shadow-amber-500/20"
-                    : "bg-slate-900/80 text-slate-400 border border-slate-800 hover:text-white hover:bg-slate-800"
-                }`}
+                className={`rounded-xl px-3.5 py-1.5 text-xs font-semibold transition cursor-pointer ${isActive
+                  ? "bg-sky-500 text-slate-950 shadow-md shadow-sky-500/20"
+                  : "bg-slate-900/80 text-slate-400 border border-slate-800 hover:text-white hover:bg-slate-800"
+                  }`}
               >
                 {tab.label}
               </button>
@@ -83,7 +82,7 @@ export default function LessonsPage() {
             placeholder="Search topics, syntax, concepts..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full rounded-xl border border-slate-800 bg-slate-900/80 px-4 py-2 text-xs text-slate-100 placeholder-slate-500 focus:border-amber-500 focus:outline-none focus:ring-1 focus:ring-amber-500"
+            className="w-full rounded-xl border border-slate-800 bg-slate-900/80 px-4 py-2 text-xs text-slate-100 placeholder-slate-500 focus:border-sky-500 focus:outline-none focus:ring-1 focus:ring-sky-500"
           />
           {searchQuery && (
             <button

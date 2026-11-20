@@ -31,19 +31,19 @@ const STYLE_METADATA: Record<LearningStyle, { label: string; icon: string; desc:
 const DIFFICULTY_CONFIG: Record<DifficultyLevel, { label: string; badge: string }> = {
   [DifficultyLevel.Beginner]: {
     label: "Beginner",
-    badge: "border-emerald-500/30 bg-emerald-500/10 text-emerald-400",
+    badge: "border-green-500/30 bg-green-500/10 text-green-500",
   },
   [DifficultyLevel.Intermediate]: {
     label: "Intermediate",
-    badge: "border-sky-500/30 bg-sky-500/10 text-sky-400",
+    badge: "border-orange-500/30 bg-orange-500/10 text-orange-500",
   },
   [DifficultyLevel.Advanced]: {
     label: "Advanced",
-    badge: "border-violet-500/30 bg-violet-500/10 text-violet-400",
+    badge: "border-red-500/30 bg-red-500/10 text-red-500",
   },
   [DifficultyLevel.Professional]: {
     label: "Professional",
-    badge: "border-amber-500/30 bg-amber-500/10 text-amber-400",
+    badge: "border-sky-500/30 bg-sky-500/10 text-sky-400",
   },
   [DifficultyLevel.Expert]: {
     label: "Expert",
@@ -281,7 +281,7 @@ export default function LessonDetailPage() {
 
         <button
           onClick={() => navigate(`/lessons/${lesson.id}/quiz`)}
-          className="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-amber-600 to-amber-500 px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-amber-500/20 transition hover:from-amber-500 hover:to-amber-400 cursor-pointer"
+          className="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-sky-600 to-sky-500 px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-sky-500/20 transition hover:from-sky-500 hover:to-sky-400 cursor-pointer"
         >
           <span>Take Diagnostic Quiz</span>
           <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
@@ -293,7 +293,7 @@ export default function LessonDetailPage() {
       {/* Lesson Header Banner */}
       <div className="relative overflow-hidden rounded-2xl border border-slate-800/80 bg-slate-900/60 p-6 backdrop-blur-md sm:p-8">
         <div className="flex flex-wrap items-center gap-2.5 mb-3">
-          <span className="font-mono text-xs font-semibold text-amber-400">
+          <span className="font-mono text-xs font-semibold text-sky-400">
             Lesson #{String(lesson.orderIndex).padStart(2, "0")}
           </span>
           <span className={`inline-flex items-center rounded-md border px-2 py-0.5 text-xs font-medium ${difficulty.badge}`}>
@@ -323,7 +323,7 @@ export default function LessonDetailPage() {
           <div>
             <div className="flex items-center gap-2">
               <span className="text-sm font-semibold text-white">Learning Style:</span>
-              <span className="inline-flex items-center gap-1 rounded-md bg-amber-500/15 border border-amber-500/30 px-2 py-0.5 text-xs font-medium text-amber-300">
+              <span className="inline-flex items-center gap-1 rounded-md bg-sky-500/15 border border-sky-500/30 px-2 py-0.5 text-xs font-medium text-sky-300">
                 {activeStyleInfo.icon} {activeStyleInfo.label}
               </span>
             </div>
@@ -343,7 +343,7 @@ export default function LessonDetailPage() {
                   disabled={isActive}
                   className={`flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-xs font-medium transition cursor-pointer ${
                     isActive
-                      ? "bg-amber-500 text-slate-950 font-semibold shadow-xs"
+                      ? "bg-sky-500 text-slate-950 font-semibold shadow-xs"
                       : "bg-slate-800/80 text-slate-300 hover:bg-slate-700 hover:text-white"
                   }`}
                 >
@@ -363,7 +363,7 @@ export default function LessonDetailPage() {
               <button
                 type="button"
                 onClick={handleStartNarration}
-                className="inline-flex items-center gap-1 rounded-lg bg-amber-500/20 border border-amber-500/40 px-3 py-1 text-xs font-semibold text-amber-300 hover:bg-amber-500/30 transition cursor-pointer"
+                className="inline-flex items-center gap-1 rounded-lg bg-sky-500/20 border border-sky-500/40 px-3 py-1 text-xs font-semibold text-sky-300 hover:bg-sky-500/30 transition cursor-pointer"
               >
                 <span>▶ Play Audio</span>
               </button>
@@ -383,7 +383,7 @@ export default function LessonDetailPage() {
                 >
                   ⏹ Stop
                 </button>
-                <span className="text-xs text-amber-400 animate-pulse font-mono">
+                <span className="text-xs text-sky-400 animate-pulse font-mono">
                   {isPaused ? "Paused" : "Speaking..."}
                 </span>
               </div>
@@ -399,7 +399,7 @@ export default function LessonDetailPage() {
                 onClick={() => setSpeechRate(rate)}
                 className={`px-2 py-0.5 rounded text-[11px] font-mono cursor-pointer ${
                   speechRate === rate
-                    ? "bg-amber-500/20 text-amber-300 font-bold border border-amber-500/40"
+                    ? "bg-sky-500/20 text-sky-300 font-bold border border-sky-500/40"
                     : "bg-slate-800 text-slate-400 hover:text-white"
                 }`}
               >
@@ -446,7 +446,7 @@ export default function LessonDetailPage() {
               onClick={() => handleRateDifficulty(item.val)}
               className={`px-3 py-1.5 rounded-xl text-xs font-semibold border transition cursor-pointer ${
                 difficultyRated === item.val
-                  ? "bg-amber-500/20 border-amber-500 text-amber-300 ring-1 ring-amber-500/50"
+                  ? "bg-sky-500/20 border-sky-500 text-sky-300 ring-1 ring-sky-500/50"
                   : "bg-slate-800 border-slate-700 text-slate-300 hover:bg-slate-700"
               }`}
             >
@@ -486,7 +486,7 @@ export default function LessonDetailPage() {
                   </button>
                 ))}
                 {rating > 0 && (
-                  <span className="ml-2 text-xs text-amber-400 font-medium">
+                  <span className="ml-2 text-xs text-sky-400 font-medium">
                     {rating} of 5 stars
                   </span>
                 )}
@@ -502,7 +502,7 @@ export default function LessonDetailPage() {
                 onChange={(e) => setComment(e.target.value)}
                 placeholder="What concept was clearest? What needs further visual or code examples?"
                 rows={2}
-                className="w-full rounded-xl border border-slate-700/60 bg-slate-800/50 p-3 text-xs text-slate-100 placeholder-slate-500 focus:border-amber-500 focus:outline-none focus:ring-1 focus:ring-amber-500"
+                className="w-full rounded-xl border border-slate-700/60 bg-slate-800/50 p-3 text-xs text-slate-100 placeholder-slate-500 focus:border-sky-500 focus:outline-none focus:ring-1 focus:ring-sky-500"
               />
             </div>
 
@@ -521,7 +521,7 @@ export default function LessonDetailPage() {
       <div className="flex justify-end pt-4">
         <button
           onClick={() => navigate(`/lessons/${lesson.id}/quiz`)}
-          className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-amber-600 to-amber-500 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-amber-500/20 transition hover:from-amber-500 hover:to-amber-400 cursor-pointer"
+          className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-sky-600 to-sky-500 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-sky-500/20 transition hover:from-sky-500 hover:to-sky-400 cursor-pointer"
         >
           <span>Ready for Assessment? Take Diagnostic Quiz</span>
           <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">

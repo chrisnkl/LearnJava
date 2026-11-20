@@ -164,7 +164,7 @@ export default function QuizPage() {
           className={`relative overflow-hidden rounded-2xl border p-6 sm:p-8 backdrop-blur-xl ${
             isPassed
               ? "border-emerald-500/40 bg-emerald-950/20"
-              : "border-amber-500/40 bg-amber-950/20"
+              : "border-sky-500/40 bg-sky-950/20"
           }`}
         >
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
@@ -173,7 +173,7 @@ export default function QuizPage() {
                 className={`inline-flex items-center rounded-md border px-2.5 py-0.5 text-xs font-semibold uppercase tracking-wider ${
                   isPassed
                     ? "border-emerald-500/40 bg-emerald-500/10 text-emerald-300"
-                    : "border-amber-500/40 bg-amber-500/10 text-amber-300"
+                    : "border-sky-500/40 bg-sky-500/10 text-sky-300"
                 }`}
               >
                 {isPassed ? "Assessment Passed" : "Needs Review"}
@@ -187,14 +187,14 @@ export default function QuizPage() {
                   {result.score} of {result.totalQuestions}
                 </strong>{" "}
                 ({result.accuracyPercentage.toFixed(0)}% Accuracy). Current Streak:{" "}
-                <span className="text-amber-400 font-semibold">{result.currentStreak} 🔥</span>
+                <span className="text-sky-400 font-semibold">{result.currentStreak} 🔥</span>
               </p>
             </div>
 
             {/* Score Ring / Pill */}
             <div className="flex items-center gap-3">
               <div className="flex h-20 w-20 flex-col items-center justify-center rounded-2xl border border-slate-700/60 bg-slate-900/80 shadow-inner">
-                <span className="text-2xl font-black text-amber-400">
+                <span className="text-2xl font-black text-sky-400">
                   {result.accuracyPercentage.toFixed(0)}%
                 </span>
                 <span className="text-[10px] text-slate-400 font-medium">SCORE</span>
@@ -204,13 +204,13 @@ export default function QuizPage() {
 
           {/* Stereotype Progression Alert */}
           {result.stereotypeChanged ? (
-            <div className="mt-6 flex items-center gap-3 rounded-xl border border-amber-500/40 bg-amber-500/15 p-4 text-amber-200">
+            <div className="mt-6 flex items-center gap-3 rounded-xl border border-sky-500/40 bg-sky-500/15 p-4 text-sky-200">
               <span className="text-2xl">🎉</span>
               <div>
                 <p className="text-sm font-bold text-white">
                   Stereotype Level Up!
                 </p>
-                <p className="text-xs text-amber-300 mt-0.5">
+                <p className="text-xs text-sky-300 mt-0.5">
                   Your pedagogical profile progressed from{" "}
                   <strong className="underline">{prevStereoName}</strong> to{" "}
                   <strong className="text-white underline">{currentStereoName}</strong>. The system is adapting your curriculum accordingly!
@@ -311,7 +311,7 @@ export default function QuizPage() {
                 </p>
 
                 {questionObj?.codeSnippet && (
-                  <pre className="mb-4 overflow-x-auto rounded-xl border border-slate-800 bg-slate-950 p-3 text-xs font-mono text-amber-300">
+                  <pre className="mb-4 overflow-x-auto rounded-xl border border-slate-800 bg-slate-950 p-3 text-xs font-mono text-sky-300">
                     <code>{questionObj.codeSnippet}</code>
                   </pre>
                 )}
@@ -358,7 +358,7 @@ export default function QuizPage() {
 
                 {/* Explanation */}
                 <div className="rounded-xl border border-slate-800 bg-slate-950/60 p-3.5 text-xs text-slate-300">
-                  <span className="font-semibold text-amber-400">Pedagogical Explanation: </span>
+                  <span className="font-semibold text-sky-400">Pedagogical Explanation: </span>
                   {evalResult.explanation}
                 </div>
               </div>
@@ -390,7 +390,7 @@ export default function QuizPage() {
             </button>
             <button
               onClick={() => navigate("/")}
-              className="rounded-xl bg-amber-500 px-5 py-2.5 text-xs font-bold text-slate-950 hover:bg-amber-400 shadow-md shadow-amber-500/20 cursor-pointer"
+              className="rounded-xl bg-sky-500 px-5 py-2.5 text-xs font-bold text-slate-950 hover:bg-sky-400 shadow-md shadow-sky-500/20 cursor-pointer"
             >
               Back to Dashboard
             </button>
@@ -424,7 +424,7 @@ export default function QuizPage() {
         {/* Progress meter */}
         <div className="h-1.5 w-full overflow-hidden rounded-full bg-slate-800">
           <div
-            className="h-full bg-gradient-to-r from-amber-600 to-amber-400 transition-all duration-300"
+            className="h-full bg-gradient-to-r from-sky-600 to-sky-400 transition-all duration-300"
             style={{ width: `${((currentIndex + 1) / questions.length) * 100}%` }}
           />
         </div>
@@ -441,7 +441,7 @@ export default function QuizPage() {
             <div className="border-b border-slate-800/60 bg-slate-900/70 px-4 py-1 text-[11px] font-mono text-slate-400">
               Java Snippet
             </div>
-            <pre className="p-4 text-xs font-mono text-amber-200 leading-relaxed overflow-x-auto">
+            <pre className="p-4 text-xs font-mono text-sky-200 leading-relaxed overflow-x-auto">
               <code>{currentQ.codeSnippet}</code>
             </pre>
           </div>
@@ -453,14 +453,14 @@ export default function QuizPage() {
             <button
               type="button"
               onClick={() => handleToggleHint(currentQ)}
-              className="inline-flex items-center gap-1.5 text-xs font-medium text-amber-400 hover:text-amber-300 transition cursor-pointer"
+              className="inline-flex items-center gap-1.5 text-xs font-medium text-sky-400 hover:text-sky-300 transition cursor-pointer"
             >
               <span>💡</span>
               <span>{hintsRevealed[currentQ.id] ? "Hide Pedagogical Hint" : "Need a Hint?"}</span>
             </button>
 
             {hintsRevealed[currentQ.id] && (
-              <div className="mt-2 rounded-xl border border-amber-500/30 bg-amber-500/10 p-3.5 text-xs text-amber-200">
+              <div className="mt-2 rounded-xl border border-sky-500/30 bg-sky-500/10 p-3.5 text-xs text-sky-200">
                 {currentQ.hintText}
               </div>
             )}
@@ -478,14 +478,14 @@ export default function QuizPage() {
                 onClick={() => handleSelectOption(currentQ.id, opt.id)}
                 className={`flex w-full items-start gap-3.5 rounded-xl border p-4 text-left transition cursor-pointer ${
                   isPicked
-                    ? "border-amber-500 bg-amber-500/10 shadow-sm"
+                    ? "border-sky-500 bg-sky-500/10 shadow-sm"
                     : "border-slate-800 bg-slate-950/60 hover:border-slate-700 hover:bg-slate-900"
                 }`}
               >
                 <div
                   className={`mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full border transition ${
                     isPicked
-                      ? "border-amber-500 bg-amber-500"
+                      ? "border-sky-500 bg-sky-500"
                       : "border-slate-600 bg-slate-800"
                   }`}
                 >
@@ -528,7 +528,7 @@ export default function QuizPage() {
             type="button"
             onClick={handleSubmit}
             disabled={isSubmitting}
-            className="rounded-xl bg-gradient-to-r from-amber-600 to-amber-500 px-6 py-2.5 text-xs font-bold text-white shadow-lg shadow-amber-500/20 hover:from-amber-500 hover:to-amber-400 disabled:opacity-50 cursor-pointer"
+            className="rounded-xl bg-gradient-to-r from-sky-600 to-sky-500 px-6 py-2.5 text-xs font-bold text-white shadow-lg shadow-sky-500/20 hover:from-sky-500 hover:to-sky-400 disabled:opacity-50 cursor-pointer"
           >
             {isSubmitting ? "Evaluating Misconceptions..." : "Submit Diagnostic Assessment"}
           </button>

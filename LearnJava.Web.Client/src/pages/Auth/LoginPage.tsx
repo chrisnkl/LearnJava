@@ -51,14 +51,14 @@ export default function LoginPage() {
     <div className="relative flex min-h-screen w-full items-center justify-center bg-slate-950 p-4 text-slate-100">
       {/* Background ambient glow */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
-        <div className="absolute -top-32 -left-32 h-80 w-80 rounded-full bg-amber-500/10 blur-3xl" />
+        <div className="absolute -top-32 -left-32 h-80 w-80 rounded-full bg-sky-500/10 blur-3xl" />
         <div className="absolute -bottom-32 -right-32 h-80 w-80 rounded-full bg-indigo-500/10 blur-3xl" />
       </div>
 
       <div className="relative w-full max-w-[400px]">
         {/* Brand Header */}
         <div className="mb-6 flex flex-col items-center text-center">
-          <div className="mb-3 flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-tr from-amber-600 to-amber-400 shadow-lg shadow-amber-500/25">
+          <div className="mb-3 flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-tr from-sky-600 to-sky-400 shadow-lg shadow-sky-500/25">
             <svg
               className="h-6 w-6 text-white"
               fill="none"
@@ -74,7 +74,7 @@ export default function LoginPage() {
             </svg>
           </div>
           <h1 className="text-2xl font-bold tracking-tight text-white">
-            Learn<span className="text-amber-500">Java</span>
+            Learn<span className="text-sky-500">Java</span>
           </h1>
           <p className="mt-1 text-xs text-slate-400">
             Sign in to continue your adaptive learning path
@@ -98,7 +98,7 @@ export default function LoginPage() {
               <label className="text-xs font-medium uppercase tracking-wider text-slate-400">
                 Email
               </label>
-              <div className="flex h-11 w-full items-center gap-2.5 rounded-xl border border-slate-700/80 bg-slate-800/60 px-3.5 transition focus-within:border-amber-500 focus-within:bg-slate-800 focus-within:ring-2 focus-within:ring-amber-500/20">
+              <div className="flex h-11 w-full items-center gap-2.5 rounded-xl border border-slate-700/80 bg-slate-800/60 px-3.5 transition focus-within:border-sky-500 focus-within:bg-slate-800 focus-within:ring-2 focus-within:ring-sky-500/20">
                 <svg className="h-4 w-4 shrink-0 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207" />
                 </svg>
@@ -119,7 +119,7 @@ export default function LoginPage() {
               <label className="text-xs font-medium uppercase tracking-wider text-slate-400">
                 Password
               </label>
-              <div className="flex h-11 w-full items-center gap-2.5 rounded-xl border border-slate-700/80 bg-slate-800/60 px-3.5 transition focus-within:border-amber-500 focus-within:bg-slate-800 focus-within:ring-2 focus-within:ring-amber-500/20">
+              <div className="flex h-11 w-full items-center gap-2.5 rounded-xl border border-slate-700/80 bg-slate-800/60 px-3.5 transition focus-within:border-sky-500 focus-within:bg-slate-800 focus-within:ring-2 focus-within:ring-sky-500/20">
                 <svg className="h-4 w-4 shrink-0 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
                 </svg>
@@ -155,7 +155,7 @@ export default function LoginPage() {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="mt-2 flex h-11 w-full items-center justify-center rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 px-4 text-sm font-semibold text-slate-950 shadow-md shadow-amber-500/20 transition hover:from-amber-400 hover:to-amber-500 focus:ring-2 focus:ring-amber-400/50 focus:outline-none disabled:cursor-not-allowed disabled:opacity-60 cursor-pointer"
+              className="mt-2 flex h-11 w-full items-center justify-center rounded-xl bg-gradient-to-r from-sky-500 to-sky-600 px-4 text-sm font-semibold text-slate-950 shadow-md shadow-sky-500/20 transition hover:from-sky-400 hover:to-sky-500 focus:ring-2 focus:ring-sky-400/50 focus:outline-none disabled:cursor-not-allowed disabled:opacity-60 cursor-pointer"
             >
               {isSubmitting ? (
                 <div className="flex items-center gap-2">
@@ -176,7 +176,7 @@ export default function LoginPage() {
             Don't have an account?{" "}
             <Link
               to="/register"
-              className="font-medium text-amber-400 hover:text-amber-300 hover:underline transition"
+              className="font-medium text-sky-400 hover:text-sky-300 hover:underline transition"
             >
               Create account
             </Link>
