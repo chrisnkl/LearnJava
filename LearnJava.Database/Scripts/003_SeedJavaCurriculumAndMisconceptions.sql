@@ -823,7 +823,7 @@ BEGIN
         '30',
         0,
         'Primitives are not references; copying a primitive variable duplicates its value into a separate stack slot.',
-        NULL
+        '11111111-1111-1111-1111-111111111102' -- MISC_PASS_BY_REF
     ),
     (
         '55555555-5555-5555-5555-555555551005',
