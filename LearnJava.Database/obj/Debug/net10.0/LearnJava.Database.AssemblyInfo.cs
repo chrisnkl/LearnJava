@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("LearnJava.Database")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e73885998f7249ae9377f73e77c83f052e858848")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2183933ba3d30afdb4a615e52c25d53ad809eb61")]
 [assembly: System.Reflection.AssemblyProductAttribute("LearnJava.Database")]
 [assembly: System.Reflection.AssemblyTitleAttribute("LearnJava.Database")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

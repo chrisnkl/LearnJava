@@ -1,15 +1,8 @@
--- 003_SeedJavaCurriculumAndMisconceptions.sql
--- Comprehensive seed data for LearnJava:
--- 8 Canonical Java Misconceptions (Buggy Rules)
--- 8 Progressive Curriculum Lessons (Beginner, Intermediate, Advanced)
--- 24 Multi-Variant Instructional Payloads (Visual, Practical, Conceptual)
--- 24 Diagnostic Assessment Questions with Distractor-to-Misconception Mappings
+-- Seed initial Java curriculum, misconceptions, lesson variants, and quiz questions.
 
 BEGIN TRANSACTION;
 
---------------------------------------------------------------------------------
--- 1. SEED MISCONCEPTIONS (BUGGY RULES CATALOG)
---------------------------------------------------------------------------------
+-- Misconceptions
 
 -- 1. MISC_EQUALS_REF
 IF NOT EXISTS (SELECT 1 FROM dbo.Misconceptions WHERE Code = 'MISC_EQUALS_REF')
@@ -33,7 +26,7 @@ BEGIN
         'MISC_PASS_BY_REF',
         'Pass-by-Reference in Java Methods',
         'Believing that Java passes objects by reference into methods, expecting reassigning the parameter variable inside the method to change the caller''s reference.',
-        'Java is strictly 100% pass-by-value. When an object is passed, the value being copied is the reference handle (pointer value). Modifying the object''s internal state mutates the shared instance, but reassigning the parameter (e.g. obj = new Object()) only updates the local stack copy.'
+        'Java is always pass-by-value. When an object is passed, the value being copied is the reference handle (pointer value). Modifying the object''s internal state mutates the shared instance, but reassigning the parameter (e.g. obj = new Object()) only updates the local stack copy.'
     );
 END;
 
@@ -115,9 +108,7 @@ BEGIN
     );
 END;
 
---------------------------------------------------------------------------------
--- 2. SEED LESSONS (8 PROGRESSIVE LESSONS)
---------------------------------------------------------------------------------
+-- Lessons
 
 -- Lesson 1: Memory Model
 IF NOT EXISTS (SELECT 1 FROM dbo.Lessons WHERE Id = '22222222-2222-2222-2222-222222222201')
@@ -125,8 +116,8 @@ BEGIN
     INSERT INTO dbo.Lessons (Id, Title, Summary, Difficulty, OrderIndex)
     VALUES (
         '22222222-2222-2222-2222-222222222201',
-        'Java Memory Model: Primitives vs Reference Types',
-        'Master the distinction between stack-allocated primitive values and heap-allocated object references.',
+        'Java Memory: Primitives vs Reference Types',
+        'Distinction between stack-allocated primitive values and heap-allocated object references.',
         0, -- Beginner
         1
     );
@@ -138,8 +129,8 @@ BEGIN
     INSERT INTO dbo.Lessons (Id, Title, Summary, Difficulty, OrderIndex)
     VALUES (
         '22222222-2222-2222-2222-222222222202',
-        'Object & String Equality: == vs .equals()',
-        'Learn the critical difference between identity comparison (==) and equivalence comparison (.equals()), and how the String pool behaves.',
+        'Object & String Equality (== vs .equals)',
+        'Difference between reference comparison (==) and content comparison (.equals()), including how the String pool works.',
         0, -- Beginner
         2
     );
@@ -151,8 +142,8 @@ BEGIN
     INSERT INTO dbo.Lessons (Id, Title, Summary, Difficulty, OrderIndex)
     VALUES (
         '22222222-2222-2222-2222-222222222203',
-        'Array Mechanics & Zero-Based Indexing',
-        'Explore how Java allocates arrays in heap memory, contiguous indexing rules, and avoiding off-by-one errors.',
+        'Arrays and Zero-Based Indexing',
+        'How Java allocates arrays in heap memory, zero-based indexing rules, and common off-by-one errors.',
         0, -- Beginner
         3
     );
@@ -164,8 +155,8 @@ BEGIN
     INSERT INTO dbo.Lessons (Id, Title, Summary, Difficulty, OrderIndex)
     VALUES (
         '22222222-2222-2222-2222-222222222204',
-        'Method Invocation & Pass-by-Value Mechanics',
-        'Demystify why Java is strictly pass-by-value and how reference handles behave when passed into method stacks.',
+        'Methods and Pass-by-Value',
+        'Why Java is always pass-by-value and how object references behave when passed to methods.',
         1, -- Intermediate
         4
     );
@@ -177,55 +168,53 @@ BEGIN
     INSERT INTO dbo.Lessons (Id, Title, Summary, Difficulty, OrderIndex)
     VALUES (
         '22222222-2222-2222-2222-222222222205',
-        'Static Members vs Instance State',
-        'Understand the lifecycle differences between class-level static fields/methods and heap-allocated object instance members.',
+        'Static vs Instance Members',
+        'Lifecycle differences between class-level static members and object instance fields and methods.',
         1, -- Intermediate
         5
     );
 END;
 
--- Lesson 6: String Immutability & StringBuilder (NEW)
+-- Lesson 6: String Immutability & StringBuilder
 IF NOT EXISTS (SELECT 1 FROM dbo.Lessons WHERE Id = '22222222-2222-2222-2222-222222222206')
 BEGIN
     INSERT INTO dbo.Lessons (Id, Title, Summary, Difficulty, OrderIndex)
     VALUES (
         '22222222-2222-2222-2222-222222222206',
-        'String Immutability & StringBuilder Architecture',
-        'Understand why Strings cannot mutate in-place, how transformation methods allocate new heap objects, and how StringBuilder prevents allocation churn.',
+        'String Immutability and StringBuilder',
+        'Why String objects cannot be modified in place and how StringBuilder avoids repeated heap allocations.',
         1, -- Intermediate
         6
     );
 END;
 
--- Lesson 7: Wrapper Classes & Autoboxing (NEW)
+-- Lesson 7: Wrapper Classes & Autoboxing
 IF NOT EXISTS (SELECT 1 FROM dbo.Lessons WHERE Id = '22222222-2222-2222-2222-222222222207')
 BEGIN
     INSERT INTO dbo.Lessons (Id, Title, Summary, Difficulty, OrderIndex)
     VALUES (
         '22222222-2222-2222-2222-222222222207',
-        'Wrapper Classes, Autoboxing & The NullPointerException Trap',
-        'Examine primitive wrapper objects, the Integer cache pool (-128 to 127), and how implicit unboxing of null wrappers triggers runtime NullPointerExceptions.',
+        'Wrapper Classes and Autoboxing',
+        'Primitive wrapper classes, the Integer cache (-128 to 127), and NullPointerException cases during unboxing.',
         2, -- Advanced
         7
     );
 END;
 
--- Lesson 8: Polymorphism & Variable Shadowing (NEW)
+-- Lesson 8: Polymorphism & Field Shadowing
 IF NOT EXISTS (SELECT 1 FROM dbo.Lessons WHERE Id = '22222222-2222-2222-2222-222222222208')
 BEGIN
     INSERT INTO dbo.Lessons (Id, Title, Summary, Difficulty, OrderIndex)
     VALUES (
         '22222222-2222-2222-2222-222222222208',
-        'Inheritance, Polymorphism & Variable Shadowing',
-        'Explore dynamic virtual method dispatch vs static compile-time field binding, and resolve tricky subclass variable shadowing puzzles.',
+        'Inheritance, Polymorphism & Field Shadowing',
+        'Dynamic method dispatch versus compile-time field binding, and how variable shadowing works in subclasses.',
         2, -- Advanced
         8
     );
 END;
 
---------------------------------------------------------------------------------
--- 3. SEED LESSON CONTENT VARIANTS (VISUAL, PRACTICAL, CONCEPTUAL)
---------------------------------------------------------------------------------
+-- Lesson content variants (Visual, Practical, Conceptual)
 
 -- Lesson 1 Variants
 IF NOT EXISTS (SELECT 1 FROM dbo.LessonContentVariants WHERE LessonId = '22222222-2222-2222-2222-222222222201' AND Style = 0)
@@ -235,7 +224,7 @@ BEGIN
         '33333333-3333-3333-3333-333333331001',
         '22222222-2222-2222-2222-222222222201',
         0, -- Visual
-        '# Java Memory: Visual Architecture
+        '# Java Memory: Stack vs Heap
 
 ```
 +------------------ STACK -------------------+   +------------------- HEAP --------------------+
@@ -249,10 +238,10 @@ BEGIN
 +--------------------------------------------+   +---------------------------------------------+
 ```
 
-### Key Visual Takeaways:
+### Summary
 - **Primitives (`byte`, `short`, `int`, `long`, `float`, `double`, `boolean`, `char`)**: The raw binary bits live directly in the thread stack frame.
 - **Reference Types (`Objects`, `Arrays`, `Strings`)**: The stack holds an address pointer. The actual object payload lives in the Garbage-Collected Heap.
-- **Integer Division Trap**: Dividing two ints executes between stack slots and drops fractions: `1 / 2 == 0`.'
+- **Integer Division**: Dividing two ints executes between stack slots and drops fractions: `1 / 2 == 0`.'
     );
 END;
 
@@ -263,7 +252,7 @@ BEGIN
         '33333333-3333-3333-3333-333333331002',
         '22222222-2222-2222-2222-222222222201',
         1, -- Practical
-        '# Java Memory in Action: Hands-On
+        '# Working with Primitives and References
 
 Run this experiment to observe how primitive copies and reference handles diverge:
 
@@ -282,7 +271,7 @@ public class MemoryExperiment {
         sb2.append(" World");
         System.out.println("sb1: " + sb1); // Prints "Hello World" (mutated!)
         
-        // Division trap:
+        // Integer division:
         int result = 5 / 2;
         System.out.println("5 / 2 = " + result); // Prints 2, NOT 2.5!
     }
@@ -298,7 +287,7 @@ BEGIN
         '33333333-3333-3333-3333-333333331003',
         '22222222-2222-2222-2222-222222222201',
         2, -- Conceptual
-        '# Architectural Foundations: Java Memory Model
+        '# Java Memory Model
 
 Java eliminates raw C pointer arithmetic while preserving execution performance through managed dual memory spaces:
 - **Thread Call Stack**: Fast memory allocations where primitive variables are allocated and reclaimed deterministically upon return.
@@ -562,7 +551,7 @@ Static methods and fields are loaded once when the classloader resolves the `.cl
     );
 END;
 
--- Lesson 6 Variants (String Immutability & StringBuilder)
+-- Lesson 6 Variants
 IF NOT EXISTS (SELECT 1 FROM dbo.LessonContentVariants WHERE LessonId = '22222222-2222-2222-2222-222222222206' AND Style = 0)
 BEGIN
     INSERT INTO dbo.LessonContentVariants (Id, LessonId, Style, MarkdownBody)
@@ -623,7 +612,7 @@ BEGIN
         '33333333-3333-3333-3333-333333336003',
         '22222222-2222-2222-2222-222222222206',
         2, -- Conceptual
-        '# Architectural Rationale for Immutability
+        '# Why Strings Are Immutable
 
 In Java, `String` is final and immutable for three reasons:
 1. **Security**: Strings carry database URLs, usernames, file paths, and network sockets. Immutability prevents TOCTOU (Time of Check to Time of Use) exploits.
@@ -632,7 +621,7 @@ In Java, `String` is final and immutable for three reasons:
     );
 END;
 
--- Lesson 7 Variants (Autoboxing & NPE Trap)
+-- Lesson 7 Variants
 IF NOT EXISTS (SELECT 1 FROM dbo.LessonContentVariants WHERE LessonId = '22222222-2222-2222-2222-222222222207' AND Style = 0)
 BEGIN
     INSERT INTO dbo.LessonContentVariants (Id, LessonId, Style, MarkdownBody)
@@ -653,7 +642,7 @@ Integer c = 200;  --> Allocates NEW heap object at 0x88AA
 Integer d = 200;  --> Allocates NEW heap object at 0x99BB
 c == d            --> FALSE! (Use c.equals(d)!)
 
-The Unboxing NPE Trap:
+Unboxing a null wrapper:
 Integer count = null;
 int val = count;  --> JVM invokes count.intValue() --> 💥 NullPointerException!
 ```'
@@ -693,13 +682,13 @@ BEGIN
         '33333333-3333-3333-3333-333333337003',
         '22222222-2222-2222-2222-222222222207',
         2, -- Conceptual
-        '# Syntactic Sugar vs Bytecode Reality
+        '# How Autoboxing Compiles to Bytecode
 
 Autoboxing is purely a compiler convenience (`javac`). When writing `int x = myIntegerObject;`, the compiler injects `invokevirtual java/lang/Integer.intValue:()I`. Because method invocation requires a valid receiver object reference, dereferencing a `null` reference causes an immediate JVM runtime fault.'
     );
 END;
 
--- Lesson 8 Variants (Polymorphism & Variable Shadowing)
+-- Lesson 8 Variants
 IF NOT EXISTS (SELECT 1 FROM dbo.LessonContentVariants WHERE LessonId = '22222222-2222-2222-2222-222222222208' AND Style = 0)
 BEGIN
     INSERT INTO dbo.LessonContentVariants (Id, LessonId, Style, MarkdownBody)
@@ -728,7 +717,7 @@ BEGIN
         '33333333-3333-3333-3333-333333338002',
         '22222222-2222-2222-2222-222222222208',
         1, -- Practical
-        '# Polymorphism & Shadowing in Action
+        '# Polymorphism and Field Shadowing Examples
 
 ```java
 class Vehicle {
@@ -768,13 +757,9 @@ In the Java Virtual Machine:
     );
 END;
 
---------------------------------------------------------------------------------
--- 4. SEED DIAGNOSTIC QUESTIONS & OPTIONS (3 QUESTIONS PER LESSON = 24 QUESTIONS)
---------------------------------------------------------------------------------
+-- Diagnostic questions and options
 
--- =============================================================================
--- LESSON 1 QUESTIONS (Memory Model)
--- =============================================================================
+-- Lesson 1 questions
 
 -- Q1.1: Integer Division Truncation
 IF NOT EXISTS (SELECT 1 FROM dbo.Questions WHERE Id = '44444444-4444-4444-4444-444444441001')
@@ -899,9 +884,7 @@ BEGIN
     );
 END;
 
--- =============================================================================
--- LESSON 2 QUESTIONS (Equality)
--- =============================================================================
+-- Lesson 2 questions
 
 -- Q2.1: new String Equality
 IF NOT EXISTS (SELECT 1 FROM dbo.Questions WHERE Id = '44444444-4444-4444-4444-444444442001')
@@ -931,7 +914,7 @@ BEGIN
         '44444444-4444-4444-4444-444444442001',
         'false true',
         1,
-        'Spot on! `a == b` is false because they are distinct heap allocations, while `a.equals(b)` is true because their character content is identical.',
+        'Correct. `a == b` is false because they are distinct heap allocations, while `a.equals(b)` is true because their character content is identical.',
         NULL
     ),
     (
@@ -1010,9 +993,7 @@ BEGIN
     );
 END;
 
--- =============================================================================
--- LESSON 3 QUESTIONS (Arrays)
--- =============================================================================
+-- Lesson 3 questions
 
 -- Q3.1: Array Bounds Exception
 IF NOT EXISTS (SELECT 1 FROM dbo.Questions WHERE Id = '44444444-4444-4444-4444-444444443001')
@@ -1042,7 +1023,7 @@ BEGIN
         '44444444-4444-4444-4444-444444443001',
         'Throws ArrayIndexOutOfBoundsException',
         1,
-        'Exactly! The length is 3, but valid indices are 0, 1, and 2. Accessing index 3 exceeds the upper bound.',
+        'Correct. The length is 3, but valid indices are 0, 1, and 2. Accessing index 3 exceeds the upper bound.',
         NULL
     ),
     (
@@ -1129,9 +1110,7 @@ BEGIN
     );
 END;
 
--- =============================================================================
--- LESSON 4 QUESTIONS (Pass by Value)
--- =============================================================================
+-- Lesson 4 questions
 
 -- Q4.1: Reassigning parameter
 IF NOT EXISTS (SELECT 1 FROM dbo.Questions WHERE Id = '44444444-4444-4444-4444-444444444001')
@@ -1240,9 +1219,7 @@ BEGIN
     );
 END;
 
--- =============================================================================
--- LESSON 5 QUESTIONS (Static vs Instance)
--- =============================================================================
+-- Lesson 5 questions
 
 -- Q5.1: Static main accessing instance field
 IF NOT EXISTS (SELECT 1 FROM dbo.Questions WHERE Id = '44444444-4444-4444-4444-444444445001')
@@ -1351,11 +1328,9 @@ BEGIN
     );
 END;
 
--- =============================================================================
--- LESSON 6 QUESTIONS (String Immutability & StringBuilder)
--- =============================================================================
+-- Lesson 6 questions
 
--- Q6.1: String Immutability Trap
+-- Q6.1: String Immutability
 IF NOT EXISTS (SELECT 1 FROM dbo.Questions WHERE Id = '44444444-4444-4444-4444-444444446001')
 BEGIN
     INSERT INTO dbo.Questions (Id, LessonId, Prompt, CodeSnippet, HintText, OrderIndex)
@@ -1454,9 +1429,7 @@ BEGIN
     );
 END;
 
--- =============================================================================
--- LESSON 7 QUESTIONS (Wrapper Classes & Autoboxing)
--- =============================================================================
+-- Lesson 7 questions
 
 -- Q7.1: Unboxing null Integer
 IF NOT EXISTS (SELECT 1 FROM dbo.Questions WHERE Id = '44444444-4444-4444-4444-444444447001')
@@ -1565,9 +1538,7 @@ BEGIN
     );
 END;
 
--- =============================================================================
--- LESSON 8 QUESTIONS (Polymorphism & Variable Shadowing)
--- =============================================================================
+-- Lesson 8 questions
 
 -- Q8.1: Variable Shadowing vs Method Override
 IF NOT EXISTS (SELECT 1 FROM dbo.Questions WHERE Id = '44444444-4444-4444-4444-444444448001')

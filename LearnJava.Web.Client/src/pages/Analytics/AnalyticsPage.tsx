@@ -16,7 +16,7 @@ const STEREOTYPE_DATA: Record<
   [StudentStereotype.Beginner]: {
     label: "Beginner",
     badge: "border-slate-600 bg-slate-800 text-slate-300",
-    desc: "Foundational Java student building initial object-oriented mental models.",
+    desc: "Learning core Java syntax, memory basics, and object-oriented fundamentals.",
     nextCriteria: "Reach 50% accuracy across at least 4 questions to advance to Intermediate.",
   },
   [StudentStereotype.Intermediate]: {
@@ -28,13 +28,13 @@ const STEREOTYPE_DATA: Record<
   [StudentStereotype.Advanced]: {
     label: "Advanced",
     badge: "border-violet-500/40 bg-violet-500/15 text-violet-300",
-    desc: "Proficient in polymorphism, heap management, and avoiding common cognitive traps.",
+    desc: "Comfortable with polymorphism, heap management, and common Java pitfalls.",
     nextCriteria: "Reach 90% accuracy, 15 questions answered, streak of 5+, and 3 lessons completed for Professional.",
   },
   [StudentStereotype.Professional]: {
     label: "Professional",
     badge: "border-amber-500/40 bg-amber-500/20 text-amber-300",
-    desc: "Mastery of core Java architecture, memory allocation, and bug-free mental models.",
+    desc: "Strong command of Java memory management, OOP design, and edge cases.",
     nextCriteria: "Maximum pedagogical mastery achieved!",
   },
 };
@@ -320,9 +320,9 @@ export default function AnalyticsPage() {
       <div className="rounded-2xl border border-slate-800/80 bg-slate-900/60 p-6 sm:p-8 backdrop-blur-sm">
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-4">
           <div>
-            <h2 className="text-lg font-bold text-white">Adaptive Learning Modality</h2>
+            <h2 className="text-lg font-bold text-white">Learning Style Preference</h2>
             <p className="text-xs text-slate-400 mt-0.5">
-              Select your preferred cognitive style or take the questionnaire to have the system diagnose your optimal modality.
+              Choose your preferred learning style or take the short questionnaire to set it automatically.
             </p>
           </div>
 
@@ -332,7 +332,7 @@ export default function AnalyticsPage() {
             className="inline-flex items-center gap-1.5 rounded-xl border border-amber-500/40 bg-amber-500/15 px-3.5 py-1.5 text-xs font-semibold text-amber-300 hover:bg-amber-500/25 transition cursor-pointer"
           >
             <span>📝</span>
-            <span>Take Modality Questionnaire</span>
+            <span>Take Learning Style Questionnaire</span>
           </button>
         </div>
 
@@ -477,7 +477,7 @@ export default function AnalyticsPage() {
 
         {profile.activeMisconceptions.length === 0 ? (
           <div className="rounded-xl border border-dashed border-slate-800 bg-slate-950/40 p-8 text-center text-xs text-slate-400">
-            No misconceptions logged yet! Complete diagnostic quizzes to identify cognitive blind spots.
+            No misconceptions recorded yet. Complete a quiz to see any topics that need review.
           </div>
         ) : (
           <div className="space-y-3">
@@ -561,7 +561,7 @@ export default function AnalyticsPage() {
           <div className="w-full max-w-xl rounded-2xl border border-slate-800 bg-slate-900 p-6 sm:p-8 shadow-2xl space-y-6">
             <div className="flex items-center justify-between">
               <div>
-                <h3 className="text-lg font-bold text-white">Learning Modality Questionnaire</h3>
+                <h3 className="text-lg font-bold text-white">Learning Style Questionnaire</h3>
                 <p className="text-xs text-slate-400 mt-0.5">
                   Answer 3 quick questions to diagnose your ideal learning mode.
                 </p>
@@ -639,7 +639,7 @@ export default function AnalyticsPage() {
                   {[
                     { label: "Visual cheat-sheets and diagrams", s: LearningStyle.Visual },
                     { label: "Hands-on coding katas and labs", s: LearningStyle.Practical },
-                    { label: "Comprehensive textbooks and articles", s: LearningStyle.Conceptual },
+                    { label: "Structured textbooks and articles", s: LearningStyle.Conceptual },
                     { label: "Audio lectures and technical podcasts", s: LearningStyle.Auditory },
                   ].map((opt, i) => (
                     <button
@@ -672,7 +672,7 @@ export default function AnalyticsPage() {
                 disabled={Object.keys(qAnswers).length < 3}
                 className="px-5 py-2 rounded-xl bg-amber-500 text-xs font-bold text-slate-950 hover:bg-amber-400 disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer"
               >
-                Apply Diagnosed Modality
+                Apply Recommended Style
               </button>
             </div>
           </div>

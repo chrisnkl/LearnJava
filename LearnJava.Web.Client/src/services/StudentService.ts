@@ -3,7 +3,7 @@ import { apiClient } from "./apiClient";
 
 export const StudentService = {
   /**
-   * Retrieves the comprehensive student profile including stereotype, metrics, and misconceptions.
+   * Retrieves the student profile including stereotype, metrics, and misconceptions.
    */
   async getProfile(): Promise<StudentProfileResponse> {
     return apiClient<StudentProfileResponse>("/student/profile");

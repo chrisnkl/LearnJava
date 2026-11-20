@@ -16,7 +16,7 @@ const STEREOTYPE_CHIPS: Record<
   [StudentStereotype.Beginner]: {
     label: "Beginner",
     badge: "border-slate-600 bg-slate-800 text-slate-300",
-    desc: "Foundational Java student building initial object-oriented mental models.",
+    desc: "Learning core Java syntax, memory basics, and object-oriented fundamentals.",
     nextGoal: "Score ≥ 50% across 4 questions to advance to Intermediate.",
   },
   [StudentStereotype.Intermediate]: {
@@ -28,13 +28,13 @@ const STEREOTYPE_CHIPS: Record<
   [StudentStereotype.Advanced]: {
     label: "Advanced",
     badge: "border-violet-500/40 bg-violet-500/15 text-violet-300",
-    desc: "Proficient in polymorphism, heap management, and avoiding cognitive traps.",
+    desc: "Comfortable with polymorphism, heap management, and common Java pitfalls.",
     nextGoal: "Reach 90% accuracy, 15 questions answered, streak of 5+, and 3 lessons for Professional.",
   },
   [StudentStereotype.Professional]: {
     label: "Professional",
     badge: "border-amber-500/40 bg-amber-500/20 text-amber-300",
-    desc: "Mastery of core Java architecture and bug-free mental models.",
+    desc: "Strong command of Java memory management, OOP design, and edge cases.",
     nextGoal: "Maximum pedagogical mastery achieved!",
   },
 };
@@ -183,12 +183,12 @@ export default function HomePage() {
 
         {/* Active Misconceptions */}
         <div className="rounded-2xl border border-slate-800/80 bg-slate-900/60 p-5 backdrop-blur-sm">
-          <div className="text-xs text-slate-400 mb-2">Cognitive Health</div>
+          <div className="text-xs text-slate-400 mb-2">Misconceptions</div>
           <div className="text-2xl font-black text-white flex items-center gap-2">
             {profile && profile.activeMisconceptions.length > 0 ? (
               <span className="text-rose-400">{profile.activeMisconceptions.length} Buggy Rules</span>
             ) : (
-              <span className="text-emerald-400">Optimal ✓</span>
+              <span className="text-emerald-400">All clear ✓</span>
             )}
           </div>
           <p className="text-[11px] text-slate-500 mt-1">
@@ -371,7 +371,7 @@ export default function HomePage() {
                 to="/analytics"
                 className="flex items-center justify-between p-3 rounded-xl border border-slate-800 bg-slate-950/60 hover:border-slate-700 hover:bg-slate-900 transition text-xs font-semibold text-white"
               >
-                <span>📊 Cognitive Analytics & Modality</span>
+                <span>📊 Progress & Learning Style</span>
                 <span className="text-slate-500">→</span>
               </Link>
             </div>

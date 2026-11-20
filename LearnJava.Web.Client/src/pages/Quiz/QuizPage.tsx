@@ -149,9 +149,7 @@ export default function QuizPage() {
     );
   }
 
-  // ==========================================
-  // RESULTS VIEW (Diagnostics & Remediation)
-  // ==========================================
+  // Results view
   if (result) {
     const isPassed = result.isPassed;
     const currentStereoName =
@@ -236,7 +234,7 @@ export default function QuizPage() {
               </h2>
             </div>
             <p className="text-xs text-slate-300 mb-4 leading-relaxed">
-              Our inference engine detected specific buggy rules in your answers. Review these cognitive traps to solidify your Java mental model:
+              Based on your answers, these concepts need review:
             </p>
 
             <div className="space-y-4">
@@ -253,7 +251,7 @@ export default function QuizPage() {
                   </div>
 
                   <div>
-                    <span className="text-xs font-semibold text-rose-300">The Mental Trap: </span>
+                    <span className="text-xs font-semibold text-rose-300">Common Mistake: </span>
                     <span className="text-xs text-slate-300 leading-relaxed">{misc.explanation}</span>
                   </div>
 
@@ -271,7 +269,7 @@ export default function QuizPage() {
             <div>
               <p className="text-sm font-bold text-white">No Misconceptions Detected</p>
               <p className="text-xs text-emerald-400 mt-0.5">
-                Clean mental model! You did not trigger any of the canonical misconception distractors in this assessment.
+                No misconceptions detected in this quiz.
               </p>
             </div>
           </div>
@@ -402,9 +400,7 @@ export default function QuizPage() {
     );
   }
 
-  // ==========================================
-  // ACTIVE QUIZ QUESTION VIEW
-  // ==========================================
+  // Active question view
   const currentQ = questions[currentIndex];
   const answeredTotal = Object.keys(selectedAnswers).length;
 

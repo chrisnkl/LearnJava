@@ -41,7 +41,7 @@ export default function LessonsPage() {
             Java Curriculum
           </h1>
           <p className="mt-1 text-sm text-slate-400">
-            Comprehensive adaptive learning modules tailored to your cognitive modality.
+            Java lessons adapted to your selected learning style.
           </p>
         </div>
 

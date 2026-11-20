@@ -322,7 +322,7 @@ export default function LessonDetailPage() {
         <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
           <div>
             <div className="flex items-center gap-2">
-              <span className="text-sm font-semibold text-white">Adaptive Learning Modality:</span>
+              <span className="text-sm font-semibold text-white">Learning Style:</span>
               <span className="inline-flex items-center gap-1 rounded-md bg-amber-500/15 border border-amber-500/30 px-2 py-0.5 text-xs font-medium text-amber-300">
                 {activeStyleInfo.icon} {activeStyleInfo.label}
               </span>

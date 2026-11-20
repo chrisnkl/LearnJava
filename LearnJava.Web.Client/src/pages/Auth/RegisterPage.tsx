@@ -86,7 +86,7 @@ export default function RegisterPage() {
             Learn<span className="text-amber-500">Java</span>
           </h1>
           <p className="mt-1 text-xs text-slate-400">
-            Create an account to start your adaptive learning journey
+            Create an account to start learning Java
           </p>
         </div>
 

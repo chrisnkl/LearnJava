@@ -5,10 +5,8 @@ using LearnJava.Web.Services.Interfaces;
 namespace LearnJava.Web.Services.Services;
 
 /// <summary>
-/// Core inference engine implementing:
-/// 1. Stereotype User Modeling (Rule-based inference for student categorization)
-/// 2. Buggy Rules / Misconception Detection (Distractor analysis on student quiz options)
-/// 3. Adaptive Recommendation Generation (Remediation targeting detected cognitive gaps)
+/// Inference engine handling stereotype classification, misconception detection,
+/// and lesson recommendations based on quiz results.
 /// </summary>
 public class AdaptiveInferenceEngine : IAdaptiveInferenceEngine
 {
@@ -60,8 +58,7 @@ public class AdaptiveInferenceEngine : IAdaptiveInferenceEngine
             {
                 correctCount++;
 
-                // If student got it right, check if any distractor for this question matches an active misconception
-                // Answering correctly demonstrates mastery and resolves the cognitive gap!
+                // Resolve any active misconception linked to a distractor on this question
                 foreach (var opt in question.Options.Where(o => !o.IsCorrect && o.AssociatedMisconceptionId.HasValue))
                 {
                     if (activeMisconceptionIds.Contains(opt.AssociatedMisconceptionId!.Value))
@@ -93,7 +90,7 @@ public class AdaptiveInferenceEngine : IAdaptiveInferenceEngine
                         selectedOption.MisconceptionCode ?? "MISC_UNKNOWN",
                         selectedOption.MisconceptionTitle ?? "Conceptual Misconception",
                         selectedOption.MisconceptionExplanation ?? selectedOption.Explanation,
-                        selectedOption.MisconceptionAdvice ?? "Review this lesson to solidify the core principles."
+                        selectedOption.MisconceptionAdvice ?? "Review this lesson to reinforce the main concepts."
                     );
 
                     newlyDetected.Add(detectedDto);
