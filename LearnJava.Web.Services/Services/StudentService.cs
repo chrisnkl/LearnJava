@@ -32,7 +32,7 @@ public class StudentService : IStudentService
         var student = await _studentRepository.GetByIdAsync(studentId, cancellationToken)
             ?? throw new AuthenticationException("Student not found.");
 
-        // Self-healing synchronization: ensure stored stereotype tier reflects current lifetime performance
+        // Ensure stored stereotype tier reflects current lifetime performance
         var expectedStereotype = _inferenceEngine.InferStereotype(
             student.AccuracyCorrectQuestionsPercentage,
             student.TotalQuestionsAnswered,

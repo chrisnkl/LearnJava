@@ -1,4 +1,3 @@
-using System.Data;
 using Dapper;
 using LearnJava.Web.Services.DTOs.Responses;
 using Microsoft.Data.SqlClient;

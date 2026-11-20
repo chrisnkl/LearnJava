@@ -8,9 +8,7 @@ public enum InteractionType
     AnswerQuestion = 3,
     ViewExplanation = 4,
     RateDifficulty = 5,
-    /// <summary>
-    /// Passive reading-time heartbeat sent by the client when a lesson is left.
-    /// Deliberately distinct from <see cref="CompleteLesson"/>, which drives lesson completion status.
-    /// </summary>
+    // Passive reading-time heartbeat sent by the client when a lesson is left.
+    // Deliberately distinct from CompleteLesson, which drives lesson completion status.
     ReadLesson = 6
 }

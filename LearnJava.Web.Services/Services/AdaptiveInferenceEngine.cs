@@ -4,10 +4,8 @@ using LearnJava.Web.Services.Interfaces;
 
 namespace LearnJava.Web.Services.Services;
 
-/// <summary>
-/// Inference engine handling stereotype classification, misconception detection,
-/// and lesson recommendations based on quiz results.
-/// </summary>
+// Inference engine handling stereotype classification, misconception detection,
+// and lesson recommendations based on quiz results.
 public class AdaptiveInferenceEngine : IAdaptiveInferenceEngine
 {
     public StudentStereotype InferStereotype(

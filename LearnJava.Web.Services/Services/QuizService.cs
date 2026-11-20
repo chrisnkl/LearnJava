@@ -70,7 +70,7 @@ public class QuizService : IQuizService
 
         var previousStereotype = student.CurrentStereotype;
 
-        // Mutate and persist student telemetry
+        // Persist student telemetry
         student.TotalLessonsAttempted++;
         if (result.IsNewLessonCompletion)
         {

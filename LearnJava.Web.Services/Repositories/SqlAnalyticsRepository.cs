@@ -1,4 +1,3 @@
-using System.Data;
 using Dapper;
 using LearnJava.Web.Domain.Entities;
 using LearnJava.Web.Services.DTOs.Responses;
@@ -172,7 +171,7 @@ public class SqlAnalyticsRepository : IAnalyticsRepository
         Guid lessonId,
         CancellationToken cancellationToken = default)
     {
-        // Same definition of "completed" used by SqlLessonRepository.IsCompleted.
+
         const string sql = """
             SELECT CASE WHEN EXISTS (
                 SELECT 1 FROM dbo.StudentInteractions
@@ -193,9 +192,7 @@ public class SqlAnalyticsRepository : IAnalyticsRepository
         int take,
         CancellationToken cancellationToken = default)
     {
-        // Quiz attempts are logged by QuizService as CompleteLesson (passed) or AnswerQuestion (failed)
-        // interactions whose AdditionalData is a JSON score summary. Column order matches the
-        // QuizAttemptDto constructor so Dapper can materialize the positional record.
+
         const string sql = """
             SELECT TOP (@Take)
                 si.LessonId,

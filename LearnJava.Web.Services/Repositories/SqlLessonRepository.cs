@@ -1,4 +1,3 @@
-using System.Data;
 using Dapper;
 using LearnJava.Web.Domain.Entities;
 using LearnJava.Web.Domain.Enums;

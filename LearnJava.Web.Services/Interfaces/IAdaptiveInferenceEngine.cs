@@ -10,8 +10,7 @@ public record EvaluationContext(
     Lesson Lesson,
     IReadOnlyList<QuestionValidationModel> Questions,
     IReadOnlyDictionary<Guid, Guid> SelectedAnswers,
-    // True when the student already passed this lesson before. Retakes must not
-    // count as additional completed lessons in the stereotype rules.
+    // True when the student already passed this lesson before. Retakes do not count as additional completed lessons in the stereotype rules.
     bool LessonAlreadyCompleted = false
 );
 

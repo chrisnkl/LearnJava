@@ -1,4 +1,4 @@
-﻿using LearnJava.Web.Domain.Exceptions; // or System.ComponentModel.DataAnnotations
+﻿using LearnJava.Web.Domain.Exceptions;
 
 namespace LearnJava.Web.Services.DTOs.Requests;
 
