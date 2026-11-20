@@ -1,6 +1,6 @@
 -- Seed a default student account for testing and demonstration:
 -- Email: user@gmail.com
--- Password: user12345 (BCrypt Enhanced WorkFactor 12)
+-- Password: user12345
 
 IF NOT EXISTS (SELECT 1 FROM dbo.Students WHERE Email = 'user@gmail.com')
 BEGIN

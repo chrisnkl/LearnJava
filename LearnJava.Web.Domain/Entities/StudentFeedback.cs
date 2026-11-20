@@ -1,5 +1,3 @@
-using LearnJava.Web.Domain.Enums;
-
 namespace LearnJava.Web.Domain.Entities;
 
 public class StudentFeedback : BaseEntity

@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("LearnJava.Web.Services")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+be6f681c0bbaf3756d369e5d18fe5f1d09b6520d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0a42c795627fbc6dcf1f88577ed2c55e7ea5fe4f")]
 [assembly: System.Reflection.AssemblyProductAttribute("LearnJava.Web.Services")]
 [assembly: System.Reflection.AssemblyTitleAttribute("LearnJava.Web.Services")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -263,17 +263,17 @@ public class MemoryExperiment {
         int a = 10;
         int b = a;
         b = 20;
-        System.out.println("a: " + a); // Prints 10 (unchanged)
+        System.out.println("a: " + a); // Prints 10
 
         // References copy memory pointers
         StringBuilder sb1 = new StringBuilder("Hello");
         StringBuilder sb2 = sb1;
         sb2.append(" World");
-        System.out.println("sb1: " + sb1); // Prints "Hello World" (mutated!)
+        System.out.println("sb1: " + sb1); // Prints "Hello World"
         
         // Integer division:
         int result = 5 / 2;
-        System.out.println("5 / 2 = " + result); // Prints 2, NOT 2.5!
+        System.out.println("5 / 2 = " + result); // Prints 2, NOT 2.5
     }
 }
 ```'
@@ -311,16 +311,16 @@ String s1 = "java";             // Reuses String Pool entry 0x100
 String s2 = "java";             // Reuses String Pool entry 0x100
 String s3 = new String("java"); // Force-allocated at Heap 0x900
 
-   s1 (0x100) -----\
+   s1 (0x100) -----|
                     +---> [ "java" ] in String Constant Pool
-   s2 (0x100) -----/
+   s2 (0x100) -----|
 
    s3 (0x900) ----------> [ "java" ] on Regular Heap
 
 Comparisons:
-s1 == s2        --> TRUE  (Identical memory address: 0x100 == 0x100)
-s1 == s3        --> FALSE (Different addresses: 0x100 != 0x900)
-s1.equals(s3)   --> TRUE  (Character by character equivalence)
+s1 == s2 --> TRUE  (Identical memory address: 0x100 == 0x100)
+s1 == s3 --> FALSE (Different addresses: 0x100 != 0x900)
+s1.equals(s3) --> TRUE  (Character by character equivalence)
 ```'
     );
 END;
@@ -341,12 +341,12 @@ public class EqualityLab {
         
         // BUGGY:
         if (input == "admin") {
-            System.out.println("Will never run!");
+            System.out.println("Will never run.");
         }
 
         // CORRECT:
         if ("admin".equals(input)) {
-            System.out.println("Safe and null-proof!");
+            System.out.println("Safe and null-proof.");
         }
     }
 }
@@ -387,7 +387,7 @@ int[] nums = new int[3]; // length = 3
    Address:    0x10     0x14     0x18
    Value:        0        0        0       -- Zero-initialized by default
 
-   nums[3] --> 💥 EXCEPTION: ArrayIndexOutOfBoundsException!
+   nums[3] -> EXCEPTION: throws ArrayIndexOutOfBoundsException.
 ```'
     );
 END;
@@ -442,12 +442,12 @@ BEGIN
 
 ```
 [caller() Frame]                [modify() Frame]
-greeting = 0x55AA ----------->  sb = 0x55AA (Copy of address!)
-                                sb = 0x99BB (Reassigned to NEW object)
+greeting = 0x55AA ----------->  sb = 0x55AA
+                                sb = 0x99BB (Reassigned to new object)
 
 HEAP:
-[0x55AA: "Hello"]  <-- greeting STILL points here!
-[0x99BB: "World"]  <-- sb pointed here, then modify() frame died!
+[0x55AA: "Hello"]  <-- greeting still points here.
+[0x99BB: "World"]  <-- sb pointed here, then modify() frame stopped.
 ```'
     );
 END;
@@ -463,11 +463,11 @@ BEGIN
 
 ```java
 void addTag(List<String> list) {
-    list.add("Java"); // Mutates shared heap object!
+    list.add("Java"); // Mutates shared heap object.
 }
 
 void reassign(List<String> list) {
-    list = new ArrayList<>(); // Reassigns local stack variable only!
+    list = new ArrayList<>(); // Reassigns local stack variable only.
 }
 ```'
     );
@@ -500,7 +500,7 @@ BEGIN
 Class Blueprint Area (Metaspace):
 +-------------------------------+
 | Counter.class                 |
-|   static int count = 2;       | <--- Shared by all instances!
+|   static int count = 2;       | <- Shared across all instances.
 +-------------------------------+
 
 Heap Allocations:
@@ -531,7 +531,7 @@ public class Service {
 
         // Legal in Java, but bad practice:
         Service s = null;
-        s.printHelp(); // Does NOT throw NullPointerException! Compiler binds to Service.printHelp()
+        s.printHelp(); // Does NOT throw NullPointerException, compiler binds automatically to Service.printHelp()
     }
 }
 ```'
@@ -564,12 +564,12 @@ BEGIN
 ```
 String Operation:
    String str = "hello";       // 0x111: [ "hello" ]
-   str.concat(" world");       // 0x222: [ "hello world" ] (Created in heap!)
-   // str STILL points to 0x111! "hello" was NOT mutated!
+   str.concat(" world");       // 0x222: [ "hello world" ]
+   // str is still pointing to 0x111, "hello" was not mutated.
 
 StringBuilder Operation:
    StringBuilder sb = new StringBuilder("hello"); // 0x555 internal char[] buffer
-   sb.append(" world");        // 0x555 internal buffer expanded in-place!
+   sb.append(" world");        // 0x555 internal buffer expanded in-place.
 ```'
     );
 END;
@@ -588,10 +588,10 @@ public class StringLab {
     public static void main(String[] args) {
         String greeting = "hi";
         greeting.toUpperCase();
-        System.out.println(greeting); // Still prints "hi"!
+        System.out.println(greeting); // Still prints "hi".
 
         greeting = greeting.toUpperCase();
-        System.out.println(greeting); // Now prints "HI"!
+        System.out.println(greeting); // Now prints "HI".
 
         // Use StringBuilder for loops:
         StringBuilder log = new StringBuilder();
@@ -633,18 +633,18 @@ BEGIN
 
 ```
 Integer Cache (-128 to +127):
-Integer a = 100;  --> Points to cached Integer at 0xCA01
-Integer b = 100;  --> Points to same cached Integer at 0xCA01
-a == b            --> TRUE
+Integer a = 100;  -> Points to cached Integer at 0xCA01
+Integer b = 100;  -> Points to same cached Integer at 0xCA01
+a == b            -> TRUE
 
 Outside Cache (>= 128):
-Integer c = 200;  --> Allocates NEW heap object at 0x88AA
-Integer d = 200;  --> Allocates NEW heap object at 0x99BB
-c == d            --> FALSE! (Use c.equals(d)!)
+Integer c = 200;  -> Allocates NEW heap object at 0x88AA
+Integer d = 200;  -> Allocates NEW heap object at 0x99BB
+c == d            -> FALSE! (Use c.equals(d) instead)
 
 Unboxing a null wrapper:
 Integer count = null;
-int val = count;  --> JVM invokes count.intValue() --> 💥 NullPointerException!
+int val = count;  -> JVM invokes count.intValue() --> Throws NullPointerException exception.
 ```'
     );
 END;
@@ -664,7 +664,7 @@ public class BoxingLab {
         Integer userScore = null;
 
         // UNSAFE:
-        // int total = userScore + 10; // 💥 NullPointerException!
+        // int total = userScore + 10; // Throws NullPointerException exception.
 
         // SAFE:
         int total = (userScore != null ? userScore : 0) + 10;
@@ -704,8 +704,8 @@ class Child extends Parent { int x = 20; void print() { System.out.println("Chil
 
 Parent p = new Child();
 
-p.x       --> 10 (Fields are resolved statically by reference type: Parent)
-p.print() --> "Child" (Instance methods are resolved dynamically by runtime object!)
+p.x       -> 10 (Fields are resolved statically by reference type: Parent)
+p.print() -> "Child" (Instance methods are resolved dynamically by runtime object.)
 ```'
     );
 END;
@@ -728,14 +728,14 @@ class Vehicle {
 class Car extends Vehicle {
     String type = "Sports Car";
     @Override
-    void start() { System.out.println("Car engine revs!"); }
+    void start() { System.out.println("Car engine revs."); }
 }
 
 public class PolyTest {
     public static void main(String[] args) {
         Vehicle v = new Car();
         System.out.println(v.type); // Prints "Generic Vehicle"!
-        v.start();                  // Prints "Car engine revs!"!
+        v.start();                  // Prints "Car engine revs."!
     }
 }
 ```'
