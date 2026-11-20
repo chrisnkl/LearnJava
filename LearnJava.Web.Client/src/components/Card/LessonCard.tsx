@@ -5,7 +5,6 @@ interface LessonCardProps {
     lesson: LessonSummary;
 }
 
-// Maps DifficultyLevel enum (0-4) to readable label and badge color styles
 const DIFFICULTY_CONFIG: Record<
     DifficultyLevel,
     { label: string; badge: string }

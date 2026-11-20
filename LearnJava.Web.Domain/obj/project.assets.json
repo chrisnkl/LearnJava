@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\chchn\\RiderProjects\\LearnJava\\LearnJava.Web.Domain\\LearnJava.Web.Domain.csproj",
+      "projectUniqueName": "C:\\Users\\chchn\\Downloads\\LearnJava\\LearnJava.Web.Domain\\LearnJava.Web.Domain.csproj",
       "projectName": "LearnJava.Web.Domain",
-      "projectPath": "C:\\Users\\chchn\\RiderProjects\\LearnJava\\LearnJava.Web.Domain\\LearnJava.Web.Domain.csproj",
+      "projectPath": "C:\\Users\\chchn\\Downloads\\LearnJava\\LearnJava.Web.Domain\\LearnJava.Web.Domain.csproj",
       "packagesPath": "C:\\Users\\chchn\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\chchn\\RiderProjects\\LearnJava\\LearnJava.Web.Domain\\obj\\",
+      "outputPath": "C:\\Users\\chchn\\Downloads\\LearnJava\\LearnJava.Web.Domain\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

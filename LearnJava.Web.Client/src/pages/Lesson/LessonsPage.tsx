@@ -34,7 +34,6 @@ export default function LessonsPage() {
 
   return (
     <div className="space-y-8">
-      {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 border-b border-slate-800 pb-6">
         <div>
           <h1 className="text-3xl font-extrabold tracking-tight text-white">
@@ -53,9 +52,7 @@ export default function LessonsPage() {
         </div>
       </div>
 
-      {/* Filter and Search Bar */}
       <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-        {/* Difficulty Tabs */}
         <div className="flex flex-wrap items-center gap-1.5">
           {DIFFICULTY_TABS.map((tab) => {
             const isActive = selectedDifficulty === tab.value;
@@ -75,7 +72,6 @@ export default function LessonsPage() {
           })}
         </div>
 
-        {/* Search Input */}
         <div className="relative w-full md:w-72">
           <input
             type="text"
@@ -96,7 +92,6 @@ export default function LessonsPage() {
         </div>
       </div>
 
-      {/* Grid of Lessons */}
       {filteredLessons.length === 0 ? (
         <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-12 text-center text-slate-400">
           <p className="text-base font-semibold text-slate-300">No lessons match your filter.</p>

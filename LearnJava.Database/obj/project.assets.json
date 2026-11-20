@@ -1394,11 +1394,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\chchn\\RiderProjects\\LearnJava\\LearnJava.Database\\LearnJava.Database.csproj",
+      "projectUniqueName": "C:\\Users\\chchn\\Downloads\\LearnJava\\LearnJava.Database\\LearnJava.Database.csproj",
       "projectName": "LearnJava.Database",
-      "projectPath": "C:\\Users\\chchn\\RiderProjects\\LearnJava\\LearnJava.Database\\LearnJava.Database.csproj",
+      "projectPath": "C:\\Users\\chchn\\Downloads\\LearnJava\\LearnJava.Database\\LearnJava.Database.csproj",
       "packagesPath": "C:\\Users\\chchn\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\chchn\\RiderProjects\\LearnJava\\LearnJava.Database\\obj\\",
+      "outputPath": "C:\\Users\\chchn\\Downloads\\LearnJava\\LearnJava.Database\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

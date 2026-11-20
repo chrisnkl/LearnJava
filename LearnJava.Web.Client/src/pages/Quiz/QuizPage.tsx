@@ -159,7 +159,6 @@ export default function QuizPage() {
 
     return (
       <div className="space-y-8 max-w-4xl mx-auto">
-        {/* Results Header Card */}
         <div
           className={`relative overflow-hidden rounded-2xl border p-6 sm:p-8 backdrop-blur-xl ${
             isPassed
@@ -187,11 +186,10 @@ export default function QuizPage() {
                   {result.score} of {result.totalQuestions}
                 </strong>{" "}
                 ({result.accuracyPercentage.toFixed(0)}% Accuracy). Current Streak:{" "}
-                <span className="text-sky-400 font-semibold">{result.currentStreak} 🔥</span>
+                <span className="text-sky-400 font-semibold">{result.currentStreak}</span>
               </p>
             </div>
 
-            {/* Score Ring / Pill */}
             <div className="flex items-center gap-3">
               <div className="flex h-20 w-20 flex-col items-center justify-center rounded-2xl border border-slate-700/60 bg-slate-900/80 shadow-inner">
                 <span className="text-2xl font-black text-sky-400">
@@ -202,10 +200,8 @@ export default function QuizPage() {
             </div>
           </div>
 
-          {/* Stereotype Progression Alert */}
           {result.stereotypeChanged ? (
             <div className="mt-6 flex items-center gap-3 rounded-xl border border-sky-500/40 bg-sky-500/15 p-4 text-sky-200">
-              <span className="text-2xl">🎉</span>
               <div>
                 <p className="text-sm font-bold text-white">
                   Stereotype Level Up!
@@ -228,7 +224,6 @@ export default function QuizPage() {
         {result.detectedMisconceptions.length > 0 ? (
           <div className="rounded-2xl border border-rose-500/40 bg-rose-950/25 p-6 backdrop-blur-md">
             <div className="flex items-center gap-2 mb-3">
-              <span className="text-xl">⚠️</span>
               <h2 className="text-lg font-bold text-rose-300">
                 Misconceptions Diagnosed ({result.detectedMisconceptions.length})
               </h2>
@@ -265,7 +260,6 @@ export default function QuizPage() {
           </div>
         ) : (
           <div className="flex items-center gap-3 rounded-2xl border border-emerald-500/30 bg-emerald-950/20 p-5 text-emerald-300">
-            <span className="text-2xl">✨</span>
             <div>
               <p className="text-sm font-bold text-white">No Misconceptions Detected</p>
               <p className="text-xs text-emerald-400 mt-0.5">
@@ -275,7 +269,6 @@ export default function QuizPage() {
           </div>
         )}
 
-        {/* Detailed Question Review */}
         <div className="space-y-4">
           <h2 className="text-lg font-bold text-white">Question Breakdown</h2>
           {result.questionResults.map((evalResult, idx) => {
@@ -316,7 +309,6 @@ export default function QuizPage() {
                   </pre>
                 )}
 
-                {/* Options Review: Your Choice vs Correct Answer */}
                 <div className="space-y-2 mb-4">
                   {questionObj?.options.map((opt) => {
                     const isChosen = opt.id === evalResult.selectedOptionId;
@@ -366,7 +358,6 @@ export default function QuizPage() {
           })}
         </div>
 
-        {/* Bottom Actions */}
         <div className="flex flex-wrap items-center justify-between gap-4 pt-4 border-t border-slate-800">
           <Link
             to={`/lessons/${id}`}
@@ -455,7 +446,6 @@ export default function QuizPage() {
               onClick={() => handleToggleHint(currentQ)}
               className="inline-flex items-center gap-1.5 text-xs font-medium text-sky-400 hover:text-sky-300 transition cursor-pointer"
             >
-              <span>💡</span>
               <span>{hintsRevealed[currentQ.id] ? "Hide Pedagogical Hint" : "Need a Hint?"}</span>
             </button>
 
@@ -467,7 +457,6 @@ export default function QuizPage() {
           </div>
         )}
 
-        {/* Options Selection */}
         <div className="mt-6 space-y-3">
           {currentQ.options.map((opt) => {
             const isPicked = selectedAnswers[currentQ.id] === opt.id;
@@ -521,7 +510,7 @@ export default function QuizPage() {
             onClick={() => setCurrentIndex((prev) => prev + 1)}
             className="rounded-xl bg-slate-800 hover:bg-slate-700 px-5 py-2 text-xs font-bold text-white transition cursor-pointer"
           >
-            Next Question →
+            Next Question
           </button>
         ) : (
           <button

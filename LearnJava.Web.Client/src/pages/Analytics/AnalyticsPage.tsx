@@ -43,25 +43,25 @@ const STYLE_OPTIONS: { style: LearningStyle; label: string; icon: string; desc: 
   {
     style: LearningStyle.Visual,
     label: "Visual Learner",
-    icon: "🎨",
+    icon: "",
     desc: "Stack & heap memory diagrams, ASCII layouts, and architectural flowcharts",
   },
   {
     style: LearningStyle.Practical,
     label: "Practical Learner",
-    icon: "💻",
+    icon: "",
     desc: "Hands-on runnable code snippets, live debugging experiments, and recipes",
   },
   {
     style: LearningStyle.Conceptual,
     label: "Conceptual Learner",
-    icon: "📖",
+    icon: "",
     desc: "Theoretical foundations, computer science analogies, and design principles",
   },
   {
     style: LearningStyle.Auditory,
     label: "Auditory Learner",
-    icon: "🎧",
+    icon: "",
     desc: "Spoken explanations, audio narration, and verbal discussion of principles",
   },
 ];
@@ -130,7 +130,7 @@ export default function AnalyticsPage() {
         lastName: profile.lastName,
       });
       setProfile((prev) => (prev ? { ...prev, preferredLearningStyle: newStyle } : null));
-      setSuccessMsg("Learning style preference saved! Future lessons will adapt automatically.");
+      setSuccessMsg("Learning style preference saved. Future lessons will adapt automatically.");
       setTimeout(() => setSuccessMsg(null), 4000);
     } catch {
       alert("Failed to update learning preferences.");
@@ -222,7 +222,6 @@ export default function AnalyticsPage() {
 
   return (
     <div className="space-y-8 max-w-6xl mx-auto">
-      {/* Top Banner: Student Identity & Stereotype */}
       <div className="relative overflow-hidden rounded-2xl border border-slate-800/80 bg-slate-900/60 p-6 sm:p-8 backdrop-blur-xl">
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
           <div className="space-y-2">
@@ -275,7 +274,7 @@ export default function AnalyticsPage() {
             <div className="flex items-center justify-center gap-5">
               <div className="text-center">
                 <span className="block text-xl font-black text-sky-400">
-                  {profile.currentStreak} 🔥
+                  {profile.currentStreak}
                 </span>
                 <span className="text-[10px] text-slate-400 font-medium uppercase">
                   Streak
@@ -286,7 +285,7 @@ export default function AnalyticsPage() {
 
               <div className="text-center">
                 <span className="block text-xl font-black text-orange-400">
-                  {profile.highestStreak} 🏆
+                  {profile.highestStreak}
                 </span>
                 <span className="text-[10px] text-slate-400 font-medium uppercase">
                   Best Streak
@@ -306,7 +305,6 @@ export default function AnalyticsPage() {
           </div>
         </div>
 
-        {/* Next Tier Progression Criteria */}
         <div className="mt-6 rounded-xl border border-slate-800 bg-slate-950/70 p-3.5 text-xs text-slate-300 flex items-center gap-2">
           <span className="text-sky-400">🎯</span>
           <span>
@@ -316,7 +314,6 @@ export default function AnalyticsPage() {
         </div>
       </div>
 
-      {/* Adaptive Learning Style Preferences */}
       <div className="rounded-2xl border border-slate-800/80 bg-slate-900/60 p-6 sm:p-8 backdrop-blur-sm">
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-4">
           <div>
@@ -331,7 +328,6 @@ export default function AnalyticsPage() {
             onClick={() => setShowQuestionnaire(true)}
             className="inline-flex items-center gap-1.5 rounded-xl border border-sky-500/40 bg-sky-500/15 px-3.5 py-1.5 text-xs font-semibold text-sky-300 hover:bg-sky-500/25 transition cursor-pointer"
           >
-            <span>📝</span>
             <span>Take Learning Style Questionnaire</span>
           </button>
         </div>
@@ -383,7 +379,6 @@ export default function AnalyticsPage() {
         </div>
       </div>
 
-      {/* Performance History (Ιστορικό Απόδοσης) */}
       <div className="rounded-2xl border border-slate-800/80 bg-slate-900/60 p-6 sm:p-8 backdrop-blur-sm">
         <div className="flex items-center justify-between mb-4">
           <div>
@@ -461,11 +456,10 @@ export default function AnalyticsPage() {
         )}
       </div>
 
-      {/* Misconception Diagnosis Tracker (ADR-002: Buggy Rules) */}
       <div className="rounded-2xl border border-slate-800/80 bg-slate-900/60 p-6 sm:p-8 backdrop-blur-sm">
         <div className="flex items-center justify-between mb-4">
           <div>
-            <h2 className="text-lg font-bold text-white">Diagnosed Misconceptions (Buggy Rules)</h2>
+            <h2 className="text-lg font-bold text-white">Diagnosed Misconceptions</h2>
             <p className="text-xs text-slate-400 mt-0.5">
               Cumulative log of misconceptions detected by distractor mapping across your quiz assessments.
             </p>
@@ -496,11 +490,11 @@ export default function AnalyticsPage() {
 
                   {misc.isResolved ? (
                     <span className="inline-flex items-center gap-1 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-2.5 py-0.5 text-xs font-medium text-emerald-400">
-                      ✓ Resolved (Mastered)
+                      Resolved (Mastered)
                     </span>
                   ) : (
                     <span className="inline-flex items-center gap-1 rounded-full border border-rose-500/30 bg-rose-500/10 px-2.5 py-0.5 text-xs font-medium text-rose-300">
-                      ⚠️ Active Bug ({misc.occurrenceCount} {misc.occurrenceCount === 1 ? "trigger" : "triggers"})
+                      Active Bug ({misc.occurrenceCount} {misc.occurrenceCount === 1 ? "trigger" : "triggers"})
                     </span>
                   )}
                 </div>
@@ -511,7 +505,7 @@ export default function AnalyticsPage() {
                 </p>
 
                 <div className="rounded-lg bg-slate-900 border border-slate-800 p-2.5 text-xs text-slate-300">
-                  <strong className="text-emerald-400">Pedagogical Advice: </strong>
+                  <strong className="text-emerald-400">Advice: </strong>
                   {misc.correctiveAdvice}
                 </div>
               </div>
@@ -525,10 +519,10 @@ export default function AnalyticsPage() {
         <div className="rounded-2xl border border-sky-500/30 bg-sky-950/15 p-6 backdrop-blur-sm">
           <div className="flex items-center gap-2 mb-3">
             <span className="text-xl">💡</span>
-            <h2 className="text-lg font-bold text-sky-300">Pedagogical Recommendations</h2>
+            <h2 className="text-lg font-bold text-sky-300">Recommendations</h2>
           </div>
           <p className="text-xs text-slate-300 mb-4">
-            Generated automatically by the inference engine to remediate identified knowledge gaps:
+            Generated by the inference engine to remediate identified knowledge gaps:
           </p>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -546,7 +540,7 @@ export default function AnalyticsPage() {
                     to={`/lessons/${rec.targetLessonId}`}
                     className="inline-flex items-center gap-1 text-xs font-semibold text-sky-400 hover:text-sky-300"
                   >
-                    Start Remediation Lesson →
+                    Start Remediation Lesson
                   </Link>
                 </div>
               </div>
@@ -638,7 +632,7 @@ export default function AnalyticsPage() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
                   {[
                     { label: "Visual cheat-sheets and diagrams", s: LearningStyle.Visual },
-                    { label: "Hands-on coding katas and labs", s: LearningStyle.Practical },
+                    { label: "Hands-on coding and labs", s: LearningStyle.Practical },
                     { label: "Structured textbooks and articles", s: LearningStyle.Conceptual },
                     { label: "Audio lectures and technical podcasts", s: LearningStyle.Auditory },
                   ].map((opt, i) => (

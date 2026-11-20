@@ -49,14 +49,12 @@ export default function LoginPage() {
 
   return (
     <div className="relative flex min-h-screen w-full items-center justify-center bg-slate-950 p-4 text-slate-100">
-      {/* Background ambient glow */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
         <div className="absolute -top-32 -left-32 h-80 w-80 rounded-full bg-sky-500/10 blur-3xl" />
         <div className="absolute -bottom-32 -right-32 h-80 w-80 rounded-full bg-indigo-500/10 blur-3xl" />
       </div>
 
       <div className="relative w-full max-w-[400px]">
-        {/* Brand Header */}
         <div className="mb-6 flex flex-col items-center text-center">
           <div className="mb-3 flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-tr from-sky-600 to-sky-400 shadow-lg shadow-sky-500/25">
             <svg
@@ -81,7 +79,6 @@ export default function LoginPage() {
           </p>
         </div>
 
-        {/* Card */}
         <div className="w-full rounded-2xl border border-slate-800/80 bg-slate-900/80 p-6 shadow-2xl backdrop-blur-xl sm:p-8">
           <form onSubmit={handleSubmit} className="flex flex-col gap-4">
             {error && (
@@ -171,7 +168,6 @@ export default function LoginPage() {
             </button>
           </form>
 
-          {/* Footer */}
           <div className="mt-5 border-t border-slate-800/80 pt-4 text-center text-xs text-slate-400">
             Don't have an account?{" "}
             <Link

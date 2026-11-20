@@ -4,7 +4,6 @@ export default function Footer() {
   return (
     <footer className="border-t border-slate-800/80 bg-slate-950 text-slate-400">
       <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-4 py-6 sm:flex-row sm:px-6 lg:px-8">
-        {/* Brand / Tagline */}
         <div className="flex items-center gap-2">
           <div className="flex h-6 w-6 items-center justify-center rounded-lg bg-sky-500/20 text-sky-400">
             <svg
@@ -22,7 +21,7 @@ export default function Footer() {
             </svg>
           </div>
           <span className="text-xs text-slate-400">
-            <strong className="font-semibold text-slate-300">LearnJava</strong> — Adaptive Intelligent Tutoring System
+            <strong className="font-semibold text-slate-300">LearnJava</strong> — Adaptive Intelligent Learning System
           </span>
         </div>
 

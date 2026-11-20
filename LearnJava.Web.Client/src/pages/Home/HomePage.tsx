@@ -35,15 +35,15 @@ const STEREOTYPE_CHIPS: Record<
     label: "Professional",
     badge: "border-sky-500/40 bg-sky-500/20 text-sky-300",
     desc: "Strong command of Java memory management, OOP design, and edge cases.",
-    nextGoal: "Maximum pedagogical mastery achieved!",
+    nextGoal: "Maximum mastery achieved.",
   },
 };
 
 const STYLE_NAMES: Record<LearningStyle, string> = {
-  [LearningStyle.Visual]: "🎨 Visual Mode",
-  [LearningStyle.Practical]: "💻 Practical Mode",
-  [LearningStyle.Conceptual]: "📖 Conceptual Mode",
-  [LearningStyle.Auditory]: "🎧 Auditory Mode",
+  [LearningStyle.Visual]: "Visual Mode",
+  [LearningStyle.Practical]: "Practical Mode",
+  [LearningStyle.Conceptual]: "Conceptual Mode",
+  [LearningStyle.Auditory]: "Auditory Mode",
 };
 
 export default function HomePage() {
@@ -96,7 +96,6 @@ export default function HomePage() {
 
   return (
     <div className="space-y-8">
-      {/* 1. Dashboard Welcome & Identity Header */}
       <div className="relative overflow-hidden rounded-2xl border border-slate-800/80 bg-slate-900/60 p-6 sm:p-8 backdrop-blur-xl">
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
           <div>
@@ -123,16 +122,14 @@ export default function HomePage() {
                 {STYLE_NAMES[profile.preferredLearningStyle] || "Visual Mode"}
               </Link>
               <span className="inline-flex items-center rounded-lg border border-sky-500/30 bg-sky-500/10 px-3 py-1 text-xs font-bold text-sky-400">
-                {profile.currentStreak} 🔥 Streak
+                {profile.currentStreak} Streak
               </span>
             </div>
           )}
         </div>
 
-        {/* Milestone Goal */}
         {stereoChip && (
           <div className="mt-6 flex items-center gap-2 rounded-xl border border-slate-800 bg-slate-950/70 p-3 text-xs text-slate-300">
-            <span className="text-sky-400">🎯</span>
             <span>
               <strong>Tier Milestone:</strong> {stereoChip.nextGoal}
             </span>
@@ -174,7 +171,7 @@ export default function HomePage() {
         <div className="rounded-2xl border border-slate-800/80 bg-slate-900/60 p-5 backdrop-blur-sm">
           <div className="text-xs text-slate-400 mb-2">Study Streak</div>
           <div className="text-2xl font-black text-sky-400 flex items-center gap-1">
-            {profile ? profile.currentStreak : 0} <span className="text-lg">🔥</span>
+            {profile ? profile.currentStreak : 0}
           </div>
           <p className="text-[11px] text-slate-500 mt-1">
             Highest: {profile ? profile.highestStreak : 0} continuous assessments
@@ -199,7 +196,6 @@ export default function HomePage() {
         </div>
       </div>
 
-      {/* 3. Continue Learning Spotlight + Targeted Recommendations */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Next Lesson Spotlight */}
         <div className="lg:col-span-2 rounded-2xl border border-slate-800/80 bg-gradient-to-br from-slate-900/90 to-slate-950/90 p-6 sm:p-8 backdrop-blur-xl flex flex-col justify-between shadow-xl">
@@ -248,11 +244,9 @@ export default function HomePage() {
           </div>
         </div>
 
-        {/* Targeted Recommendation Callout (ADR-002) */}
         <div className="rounded-2xl border border-slate-800/80 bg-slate-900/60 p-6 backdrop-blur-sm flex flex-col justify-between">
           <div>
             <div className="flex items-center gap-2 mb-3 text-sky-400">
-              <span className="text-lg">💡</span>
               <h3 className="text-sm font-bold text-white">Targeted Remediation</h3>
             </div>
 
@@ -283,28 +277,27 @@ export default function HomePage() {
                 to={`/lessons/${profile.activeRecommendations[0].targetLessonId}`}
                 className="text-xs font-bold text-sky-400 hover:text-white transition flex items-center gap-1"
               >
-                Resolve Misconceptions Now →
+                Resolve Misconceptions Now
               </Link>
             ) : (
               <Link
                 to="/quizzes"
                 className="text-xs font-semibold text-slate-400 hover:text-white transition flex items-center gap-1"
               >
-                Browse All Quizzes →
+                Browse All Quizzes
               </Link>
             )}
           </div>
         </div>
       </div>
 
-      {/* 4. Recent Diagnostic Assessments + Quick Navigation */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Recent Attempts */}
         <div className="lg:col-span-2 rounded-2xl border border-slate-800/80 bg-slate-900/60 p-6 backdrop-blur-sm">
           <div className="flex items-center justify-between mb-4">
             <h3 className="text-base font-bold text-white">Recent Assessment Activity</h3>
             <Link to="/analytics" className="text-xs text-sky-400 hover:underline">
-              View Full History →
+              View Full History 
             </Link>
           </div>
 
@@ -348,7 +341,6 @@ export default function HomePage() {
           )}
         </div>
 
-        {/* Quick Links Card */}
         <div className="rounded-2xl border border-slate-800/80 bg-slate-900/60 p-6 backdrop-blur-sm flex flex-col justify-between">
           <div>
             <h3 className="text-base font-bold text-white mb-3">Quick Navigation</h3>
@@ -357,22 +349,22 @@ export default function HomePage() {
                 to="/lessons"
                 className="flex items-center justify-between p-3 rounded-xl border border-slate-800 bg-slate-950/60 hover:border-slate-700 hover:bg-slate-900 transition text-xs font-semibold text-white"
               >
-                <span>📚 Explore All Lessons</span>
-                <span className="text-slate-500">→</span>
+                <span>Explore All Lessons</span>
+                <span className="text-slate-500"></span>
               </Link>
               <Link
                 to="/quizzes"
                 className="flex items-center justify-between p-3 rounded-xl border border-slate-800 bg-slate-950/60 hover:border-slate-700 hover:bg-slate-900 transition text-xs font-semibold text-white"
               >
-                <span>🎯 Diagnostic Quizzes</span>
-                <span className="text-slate-500">→</span>
+                <span>Diagnostic Quizzes</span>
+                <span className="text-slate-500"></span>
               </Link>
               <Link
                 to="/analytics"
                 className="flex items-center justify-between p-3 rounded-xl border border-slate-800 bg-slate-950/60 hover:border-slate-700 hover:bg-slate-900 transition text-xs font-semibold text-white"
               >
-                <span>📊 Progress & Learning Style</span>
-                <span className="text-slate-500">→</span>
+                <span>Progress & Learning Style</span>
+                <span className="text-slate-500"></span>
               </Link>
             </div>
           </div>

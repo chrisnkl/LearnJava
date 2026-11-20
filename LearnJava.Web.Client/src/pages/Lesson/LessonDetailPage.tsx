@@ -8,22 +8,22 @@ import Spinner from "../../components/Spinner/Spinner";
 const STYLE_METADATA: Record<LearningStyle, { label: string; icon: string; desc: string }> = {
   [LearningStyle.Visual]: {
     label: "Visual",
-    icon: "🎨",
+    icon: "",
     desc: "Diagrams, memory models, and flowcharts",
   },
   [LearningStyle.Practical]: {
     label: "Practical",
-    icon: "💻",
+    icon: "",
     desc: "Interactive code snippets and hands-on examples",
   },
   [LearningStyle.Conceptual]: {
     label: "Conceptual",
-    icon: "📖",
+    icon: "",
     desc: "Theory, analogies, and deep principles",
   },
   [LearningStyle.Auditory]: {
     label: "Auditory",
-    icon: "🎧",
+    icon: "",
     desc: "Spoken narration, acoustic focus, and voice pacing",
   },
 };
@@ -110,7 +110,7 @@ export default function LessonDetailPage() {
         window.speechSynthesis.cancel();
       }
 
-      // Log dwell time non-intrusively on cleanup via ReadLesson (NOT CompleteLesson)
+      // Log time non-intrusively on cleanup via ReadLesson (NOT CompleteLesson)
       const durationSeconds = Math.round((Date.now() - startTimeRef.current) / 1000);
       if (durationSeconds > 3 && id) {
         AnalyticsService.trackInteraction(
@@ -267,7 +267,6 @@ export default function LessonDetailPage() {
 
   return (
     <div className="space-y-8">
-      {/* Navigation Breadcrumb & Actions */}
       <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <Link
           to="/"
@@ -290,7 +289,6 @@ export default function LessonDetailPage() {
         </button>
       </div>
 
-      {/* Lesson Header Banner */}
       <div className="relative overflow-hidden rounded-2xl border border-slate-800/80 bg-slate-900/60 p-6 backdrop-blur-md sm:p-8">
         <div className="flex flex-wrap items-center gap-2.5 mb-3">
           <span className="font-mono text-xs font-semibold text-sky-400">
@@ -317,7 +315,6 @@ export default function LessonDetailPage() {
         </p>
       </div>
 
-      {/* Adaptive Learning Style Switcher */}
       <div className="rounded-2xl border border-slate-800/80 bg-slate-900/40 p-4">
         <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
           <div>
@@ -330,7 +327,6 @@ export default function LessonDetailPage() {
             <p className="text-xs text-slate-400 mt-0.5">{activeStyleInfo.desc}</p>
           </div>
 
-          {/* Switch tabs */}
           <div className="flex flex-wrap items-center gap-1.5">
             {allModalities.map((style) => {
               const meta = STYLE_METADATA[style];
@@ -355,17 +351,16 @@ export default function LessonDetailPage() {
           </div>
         </div>
 
-        {/* Auditory Narration Player Bar (Web Speech API) */}
         <div className="mt-3 pt-3 border-t border-slate-800/80 flex flex-wrap items-center justify-between gap-3">
           <div className="flex items-center gap-2">
-            <span className="text-xs text-slate-400 font-medium">🎧 Audio Narration:</span>
+            <span className="text-xs text-slate-400 font-medium">Audio Narration:</span>
             {!isNarrating ? (
               <button
                 type="button"
                 onClick={handleStartNarration}
                 className="inline-flex items-center gap-1 rounded-lg bg-sky-500/20 border border-sky-500/40 px-3 py-1 text-xs font-semibold text-sky-300 hover:bg-sky-500/30 transition cursor-pointer"
               >
-                <span>▶ Play Audio</span>
+                <span>Play Audio</span>
               </button>
             ) : (
               <div className="flex items-center gap-2">
@@ -374,14 +369,14 @@ export default function LessonDetailPage() {
                   onClick={handlePauseNarration}
                   className="rounded-lg bg-slate-800 border border-slate-700 px-2.5 py-1 text-xs font-semibold text-white hover:bg-slate-700 cursor-pointer"
                 >
-                  {isPaused ? "▶ Resume" : "⏸ Pause"}
+                  {isPaused ? "Resume" : "Pause"}
                 </button>
                 <button
                   type="button"
                   onClick={handleStopNarration}
                   className="rounded-lg bg-rose-500/20 border border-rose-500/40 px-2.5 py-1 text-xs font-semibold text-rose-300 hover:bg-rose-500/30 cursor-pointer"
                 >
-                  ⏹ Stop
+                  Stop
                 </button>
                 <span className="text-xs text-sky-400 animate-pulse font-mono">
                   {isPaused ? "Paused" : "Speaking..."}
@@ -410,7 +405,6 @@ export default function LessonDetailPage() {
         </div>
       </div>
 
-      {/* Main Instructional Content Body */}
       <article className="rounded-2xl border border-slate-800/80 bg-slate-900/80 p-6 sm:p-10 shadow-xl backdrop-blur-xl">
         {lesson.activeVariant.imageUrl && (
           <div className="mb-6 overflow-hidden rounded-xl border border-slate-800 bg-slate-950/60 p-2">
@@ -425,7 +419,6 @@ export default function LessonDetailPage() {
         <MarkdownViewer content={lesson.activeVariant.markdownBody} />
       </article>
 
-      {/* Self-Rated Difficulty Telemetry */}
       <section className="rounded-2xl border border-slate-800/80 bg-slate-900/40 p-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
           <h3 className="text-sm font-bold text-white">How challenging was this content?</h3>
@@ -456,7 +449,6 @@ export default function LessonDetailPage() {
         </div>
       </section>
 
-      {/* Lesson Feedback & Rating Widget */}
       <section className="rounded-2xl border border-slate-800/80 bg-slate-900/40 p-6 sm:p-8">
         <h3 className="text-base font-bold text-white">Lesson Feedback Questionnaire</h3>
         <p className="text-xs text-slate-400 mt-1">
@@ -465,7 +457,7 @@ export default function LessonDetailPage() {
 
         {feedbackSubmitted ? (
           <div className="mt-4 rounded-xl border border-emerald-500/30 bg-emerald-500/10 p-4 text-xs text-emerald-300">
-            Thank you for your feedback! Your learning profile has been updated.
+            Thank you for your feedback. Your learning profile has been updated.
           </div>
         ) : (
           <form onSubmit={handleFeedbackSubmit} className="mt-4 space-y-4">
